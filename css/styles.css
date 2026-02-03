@@ -1859,6 +1859,91 @@ ol {
 }
 
 /* ========================================
+   FEATURES SECTION
+   Visual grid showcasing core features
+   ======================================== */
+
+.features-section {
+  background-color: var(--color-gray-50);
+}
+
+.features-intro {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-10);
+  line-height: var(--line-height-base);
+}
+
+.features-grid {
+  margin-top: var(--space-8);
+}
+
+.feature-card {
+  text-align: center;
+  padding: var(--space-8);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto var(--space-5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary);
+  background-color: rgba(26, 115, 232, 0.1);
+  border-radius: var(--border-radius-full);
+  padding: var(--space-2);
+}
+
+.feature-icon svg {
+  width: 48px;
+  height: 48px;
+}
+
+.feature-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-3);
+}
+
+.feature-description {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .features-intro {
+    font-size: var(--font-size-lg);
+  }
+
+  .feature-card {
+    padding: var(--space-10);
+  }
+
+  .feature-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: var(--space-6);
+  }
+
+  .feature-icon svg {
+    width: 56px;
+    height: 56px;
+  }
+
+  .feature-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-4);
+  }
+}
+
+/* ========================================
    RESPONSIVE VISIBILITY
    ======================================== */
 
