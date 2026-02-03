@@ -1,7 +1,163 @@
 /**
  * Plowshare Landing Page Styles
- * Base CSS file - design system and variables to be added in future feature
+ * Design system with CSS custom properties for consistent branding
  */
+
+/* ========================================
+   CSS CUSTOM PROPERTIES (DESIGN TOKENS)
+   ======================================== */
+
+:root {
+  /* ======================
+     COLOR PALETTE
+     ====================== */
+
+  /* Primary Brand Colors - Plowshare Blue */
+  --color-primary: #1a73e8;
+  --color-primary-hover: #1557b0;
+  --color-primary-dark: #1a237e;
+
+  /* Hero Gradient Colors */
+  --color-hero-gradient-start: #e3f2fd;
+  --color-hero-gradient-end: #bbdefb;
+
+  /* Neutral Colors */
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-gray-50: #f5f5f5;
+  --color-gray-200: #e0e0e0;
+  --color-gray-700: #455a64;
+  --color-gray-900: #333333;
+
+  /* Footer Colors */
+  --color-footer-bg: #1a237e;
+  --color-footer-text: #ffffff;
+  --color-footer-text-muted: #b3c5ff;
+  --color-footer-border: rgba(255, 255, 255, 0.1);
+
+  /* Semantic Colors */
+  --color-text-primary: var(--color-gray-900);
+  --color-text-secondary: var(--color-gray-700);
+  --color-text-inverse: var(--color-white);
+  --color-background: var(--color-white);
+  --color-border: var(--color-gray-200);
+  --color-focus: var(--color-primary);
+
+  /* ======================
+     TYPOGRAPHY
+     ====================== */
+
+  /* Font Families */
+  --font-family-base: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* Font Sizes - Mobile First Scale */
+  --font-size-xs: 0.75rem;     /* 12px */
+  --font-size-sm: 0.875rem;    /* 14px */
+  --font-size-base: 1rem;      /* 16px */
+  --font-size-md: 1.125rem;    /* 18px */
+  --font-size-lg: 1.25rem;     /* 20px */
+  --font-size-xl: 1.5rem;      /* 24px */
+  --font-size-2xl: 2rem;       /* 32px */
+  --font-size-3xl: 2.5rem;     /* 40px */
+  --font-size-4xl: 3rem;       /* 48px */
+  --font-size-5xl: 3.5rem;     /* 56px */
+
+  /* Font Weights */
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-base: 1.6;
+  --line-height-loose: 1.75;
+
+  /* Letter Spacing */
+  --letter-spacing-tight: -0.025em;
+  --letter-spacing-normal: 0;
+  --letter-spacing-wide: 0.05em;
+
+  /* ======================
+     SPACING SCALE
+     ====================== */
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-30: 120px;
+
+  /* ======================
+     LAYOUT
+     ====================== */
+
+  --container-max-width: 1200px;
+  --container-padding-mobile: var(--space-4);
+  --container-padding-tablet: var(--space-6);
+  --container-padding-desktop: var(--space-8);
+
+  /* Section Spacing */
+  --section-padding-mobile: var(--space-16);
+  --section-padding-tablet: var(--space-20);
+
+  /* Hero Section Spacing */
+  --hero-padding-mobile: var(--space-20);
+  --hero-padding-tablet: var(--space-30);
+
+  /* ======================
+     BORDERS & RADIUS
+     ====================== */
+
+  --border-width: 1px;
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+  --border-radius-full: 9999px;
+
+  /* ======================
+     SHADOWS
+     ====================== */
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+
+  /* ======================
+     TRANSITIONS
+     ====================== */
+
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.2s ease;
+  --transition-slow: 0.3s ease;
+
+  /* ======================
+     Z-INDEX SCALE
+     ====================== */
+
+  --z-index-dropdown: 10;
+  --z-index-sticky: 50;
+  --z-index-modal: 100;
+  --z-index-tooltip: 150;
+
+  /* ======================
+     BREAKPOINTS (for reference)
+     Note: CSS custom properties cannot be used in media queries,
+     but these values document the breakpoint system:
+     --breakpoint-sm: 480px;
+     --breakpoint-md: 768px;
+     --breakpoint-lg: 1024px;
+     --breakpoint-xl: 1280px;
+     ====================== */
+}
 
 /* ========================================
    CSS RESET & BASE STYLES
@@ -25,8 +181,10 @@ html {
 
 body {
   min-height: 100vh;
-  line-height: 1.6;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  line-height: var(--line-height-base);
+  font-family: var(--font-family-base);
+  color: var(--color-text-primary);
+  background-color: var(--color-background);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -75,11 +233,11 @@ ol {
   position: absolute;
   top: -40px;
   left: 0;
-  background: #000;
-  color: #fff;
-  padding: 8px 16px;
-  z-index: 100;
-  transition: top 0.3s;
+  background: var(--color-black);
+  color: var(--color-white);
+  padding: var(--space-2) var(--space-4);
+  z-index: var(--z-index-modal);
+  transition: top var(--transition-slow);
 }
 
 .skip-link:focus {
@@ -101,7 +259,7 @@ ol {
 
 /* Focus visible for keyboard navigation */
 :focus-visible {
-  outline: 2px solid #1a73e8;
+  outline: 2px solid var(--color-focus);
   outline-offset: 2px;
 }
 
@@ -111,30 +269,30 @@ ol {
 
 .container {
   width: 100%;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 0 16px;
+  padding: 0 var(--container-padding-mobile);
 }
 
 @media (min-width: 768px) {
   .container {
-    padding: 0 24px;
+    padding: 0 var(--container-padding-tablet);
   }
 }
 
 @media (min-width: 1024px) {
   .container {
-    padding: 0 32px;
+    padding: 0 var(--container-padding-desktop);
   }
 }
 
 .section {
-  padding: 64px 0;
+  padding: var(--section-padding-mobile) 0;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 80px 0;
+    padding: var(--section-padding-tablet) 0;
   }
 }
 
@@ -145,18 +303,18 @@ ol {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 50;
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
+  z-index: var(--z-index-sticky);
+  background: var(--color-background);
+  border-bottom: var(--border-width) solid var(--color-border);
 }
 
 .nav-container {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1200px;
+  max-width: var(--container-max-width);
   margin: 0 auto;
-  padding: 16px;
+  padding: var(--space-4);
 }
 
 .logo {
@@ -165,9 +323,9 @@ ol {
 }
 
 .logo-text {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: #1a73e8;
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
 }
 
 .nav-toggle {
@@ -175,14 +333,14 @@ ol {
   background: none;
   border: none;
   cursor: pointer;
-  padding: 8px;
+  padding: var(--space-2);
 }
 
 .nav-toggle-icon {
   display: block;
   width: 24px;
   height: 2px;
-  background: #333;
+  background: var(--color-text-primary);
   position: relative;
 }
 
@@ -192,7 +350,7 @@ ol {
   position: absolute;
   width: 24px;
   height: 2px;
-  background: #333;
+  background: var(--color-text-primary);
   left: 0;
 }
 
@@ -210,11 +368,11 @@ ol {
   top: 100%;
   left: 0;
   right: 0;
-  background: #fff;
-  padding: 16px;
-  border-bottom: 1px solid #e0e0e0;
+  background: var(--color-background);
+  padding: var(--space-4);
+  border-bottom: var(--border-width) solid var(--color-border);
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .nav-menu.is-open {
@@ -223,25 +381,25 @@ ol {
 
 .nav-menu a {
   display: block;
-  padding: 12px 16px;
-  color: #333;
-  font-weight: 500;
-  transition: background 0.2s;
+  padding: var(--space-3) var(--space-4);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-medium);
+  transition: background var(--transition-base);
 }
 
 .nav-menu a:hover {
-  background: #f5f5f5;
+  background: var(--color-gray-50);
 }
 
 .nav-cta {
-  background: #1a73e8 !important;
-  color: #fff !important;
-  border-radius: 4px;
+  background: var(--color-primary) !important;
+  color: var(--color-text-inverse) !important;
+  border-radius: var(--border-radius-sm);
   text-align: center;
 }
 
 .nav-cta:hover {
-  background: #1557b0 !important;
+  background: var(--color-primary-hover) !important;
 }
 
 @media (min-width: 768px) {
@@ -256,12 +414,12 @@ ol {
     background: transparent;
     padding: 0;
     border: none;
-    gap: 4px;
+    gap: var(--space-1);
   }
 
   .nav-menu a {
-    padding: 8px 16px;
-    border-radius: 4px;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--border-radius-sm);
   }
 }
 
@@ -270,40 +428,40 @@ ol {
    ======================================== */
 
 .hero-section {
-  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  background: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
   text-align: center;
-  padding: 80px 0;
+  padding: var(--hero-padding-mobile) 0;
 }
 
 @media (min-width: 768px) {
   .hero-section {
-    padding: 120px 0;
+    padding: var(--hero-padding-tablet) 0;
   }
 }
 
 .hero-section h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: #1a237e;
-  margin-bottom: 16px;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-4);
 }
 
 @media (min-width: 768px) {
   .hero-section h1 {
-    font-size: 3.5rem;
+    font-size: var(--font-size-5xl);
   }
 }
 
 .hero-subtitle {
-  font-size: 1.125rem;
-  color: #455a64;
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
   max-width: 600px;
   margin: 0 auto;
 }
 
 @media (min-width: 768px) {
   .hero-subtitle {
-    font-size: 1.25rem;
+    font-size: var(--font-size-lg);
   }
 }
 
@@ -312,17 +470,17 @@ ol {
    ======================================== */
 
 .section h2 {
-  font-size: 2rem;
-  font-weight: 700;
-  color: #1a237e;
-  margin-bottom: 24px;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-6);
   text-align: center;
 }
 
 @media (min-width: 768px) {
   .section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 32px;
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-8);
   }
 }
 
@@ -331,35 +489,35 @@ ol {
    ======================================== */
 
 .site-footer {
-  background: #1a237e;
-  color: #fff;
-  padding: 48px 0 24px;
+  background: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  padding: var(--space-12) 0 var(--space-6);
 }
 
 .footer-content {
   display: grid;
-  gap: 32px;
+  gap: var(--space-8);
 }
 
 @media (min-width: 768px) {
   .footer-content {
     grid-template-columns: 1fr 2fr;
-    gap: 48px;
+    gap: var(--space-12);
   }
 }
 
 .footer-brand .logo-text {
-  color: #fff;
+  color: var(--color-footer-text);
 }
 
 .footer-tagline {
-  margin-top: 8px;
-  color: #b3c5ff;
+  margin-top: var(--space-2);
+  color: var(--color-footer-text-muted);
 }
 
 .footer-nav {
   display: grid;
-  gap: 24px;
+  gap: var(--space-6);
 }
 
 @media (min-width: 480px) {
@@ -369,35 +527,35 @@ ol {
 }
 
 .footer-nav-group h3 {
-  font-size: 0.875rem;
-  font-weight: 600;
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 12px;
-  color: #b3c5ff;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-3);
+  color: var(--color-footer-text-muted);
 }
 
 .footer-nav-group ul {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: var(--space-2);
 }
 
 .footer-nav-group a {
-  color: #fff;
-  font-size: 0.875rem;
-  transition: color 0.2s;
+  color: var(--color-footer-text);
+  font-size: var(--font-size-sm);
+  transition: color var(--transition-base);
 }
 
 .footer-nav-group a:hover {
-  color: #b3c5ff;
+  color: var(--color-footer-text-muted);
 }
 
 .footer-bottom {
-  margin-top: 32px;
-  padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: var(--space-8);
+  padding-top: var(--space-6);
+  border-top: var(--border-width) solid var(--color-footer-border);
   text-align: center;
-  color: #b3c5ff;
-  font-size: 0.875rem;
+  color: var(--color-footer-text-muted);
+  font-size: var(--font-size-sm);
 }
