@@ -752,6 +752,87 @@
   }
 
   /**
+   * FAQ Accordion
+   * Handles expand/collapse functionality with accessibility support
+   */
+  function initFaqAccordion() {
+    var accordion = document.querySelector('.faq-accordion');
+    if (!accordion) return;
+
+    var faqItems = accordion.querySelectorAll('.faq-item');
+
+    faqItems.forEach(function(item) {
+      var questionBtn = item.querySelector('.faq-question');
+      var answer = item.querySelector('.faq-answer');
+
+      if (!questionBtn || !answer) return;
+
+      questionBtn.addEventListener('click', function() {
+        var isExpanded = questionBtn.getAttribute('aria-expanded') === 'true';
+
+        // Toggle current item
+        toggleFaqItem(item, questionBtn, answer, !isExpanded);
+      });
+
+      // Keyboard navigation support
+      questionBtn.addEventListener('keydown', function(e) {
+        var allQuestions = accordion.querySelectorAll('.faq-question');
+        var currentIndex = Array.from(allQuestions).indexOf(questionBtn);
+
+        switch (e.key) {
+          case 'ArrowDown':
+            e.preventDefault();
+            if (currentIndex < allQuestions.length - 1) {
+              allQuestions[currentIndex + 1].focus();
+            }
+            break;
+          case 'ArrowUp':
+            e.preventDefault();
+            if (currentIndex > 0) {
+              allQuestions[currentIndex - 1].focus();
+            }
+            break;
+          case 'Home':
+            e.preventDefault();
+            allQuestions[0].focus();
+            break;
+          case 'End':
+            e.preventDefault();
+            allQuestions[allQuestions.length - 1].focus();
+            break;
+        }
+      });
+    });
+  }
+
+  /**
+   * Toggle FAQ item open/closed state
+   */
+  function toggleFaqItem(item, button, answer, shouldOpen) {
+    if (shouldOpen) {
+      // Open the item
+      button.setAttribute('aria-expanded', 'true');
+      answer.removeAttribute('hidden');
+      item.classList.add('is-open');
+
+      // Animate max-height for smooth opening
+      answer.style.maxHeight = answer.scrollHeight + 'px';
+    } else {
+      // Close the item
+      button.setAttribute('aria-expanded', 'false');
+      item.classList.remove('is-open');
+      answer.style.maxHeight = '0';
+
+      // Set hidden attribute after animation completes
+      setTimeout(function() {
+        if (button.getAttribute('aria-expanded') === 'false') {
+          answer.setAttribute('hidden', '');
+        }
+      }, 300);
+    }
+  }
+
+  /**
    * Initialize all functionality when DOM is ready
    */
   function init() {
@@ -760,6 +841,7 @@
     initSmoothScroll();
     initSignupForms();
     initCarousel();
+    initFaqAccordion();
   }
 
   // Run initialization
