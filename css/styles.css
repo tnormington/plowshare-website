@@ -439,30 +439,105 @@ ol {
   }
 }
 
+/* Hero Eyebrow Text */
+.hero-eyebrow {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  margin-bottom: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .hero-eyebrow {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-4);
+  }
+}
+
 .hero-section h1 {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-primary-dark);
   margin-bottom: var(--space-4);
+  line-height: var(--line-height-tight);
 }
 
 @media (min-width: 768px) {
   .hero-section h1 {
     font-size: var(--font-size-5xl);
+    margin-bottom: var(--space-5);
   }
+}
+
+/* Hero Highlight Text */
+.hero-highlight {
+  color: var(--color-primary);
+  display: inline-block;
 }
 
 .hero-subtitle {
   font-size: var(--font-size-md);
   color: var(--color-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
+  max-width: 640px;
+  margin: 0 auto var(--space-6);
+  line-height: var(--line-height-base);
 }
 
 @media (min-width: 768px) {
   .hero-subtitle {
     font-size: var(--font-size-lg);
+    margin-bottom: var(--space-8);
   }
+}
+
+/* Hero Benefits List */
+.hero-benefits {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  list-style: none;
+  padding: 0;
+  margin: 0 auto var(--space-8);
+  max-width: 480px;
+}
+
+@media (min-width: 480px) {
+  .hero-benefits {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-4) var(--space-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-benefits {
+    margin-bottom: var(--space-10);
+    gap: var(--space-4) var(--space-8);
+  }
+}
+
+.hero-benefits li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+}
+
+@media (min-width: 768px) {
+  .hero-benefits li {
+    font-size: var(--font-size-base);
+  }
+}
+
+.benefit-icon {
+  flex-shrink: 0;
+  color: var(--color-primary);
 }
 
 /* ========================================
