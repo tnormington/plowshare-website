@@ -1,10 +1,27 @@
 /**
  * Plowshare Landing Page Main JavaScript
- * Handles navigation toggle and basic interactivity
+ * Handles navigation toggle, form submission, and basic interactivity
  */
 
 (function() {
   'use strict';
+
+  /**
+   * Form Service Configuration
+   * Configure your form submission endpoint here.
+   * Supports Formspree, Getform, or custom endpoints.
+   */
+  var FORM_CONFIG = {
+    // Formspree endpoint - replace with your form ID
+    // Get your form ID at https://formspree.io
+    endpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+
+    // Set to true when you have configured your endpoint
+    enabled: false,
+
+    // Success redirect URL (optional - leave null to show inline message)
+    successRedirect: null
+  };
 
   /**
    * Mobile Navigation Toggle
@@ -124,21 +141,65 @@
     var formData = {
       email: emailInput.value.trim(),
       user_type: userTypeInput ? userTypeInput.value : 'property_owner',
-      consent: consentCheckbox.checked,
-      timestamp: new Date().toISOString()
+      consent: consentCheckbox.checked ? 'yes' : 'no',
+      timestamp: new Date().toISOString(),
+      source: window.location.href,
+      form_location: form.getAttribute('data-form-location') || 'unknown',
+      _subject: 'New Plowshare Waitlist Signup'
     };
 
     // Set loading state
     setLoadingState(form, true);
 
-    // Simulate form submission (replace with actual API call)
-    setTimeout(function() {
-      setLoadingState(form, false);
-      showSuccessMessage(form, formData.email);
+    // Submit to form service if enabled, otherwise use local storage demo
+    if (FORM_CONFIG.enabled) {
+      submitToFormService(form, formData);
+    } else {
+      // Demo mode: simulate submission
+      setTimeout(function() {
+        setLoadingState(form, false);
+        showSuccessMessage(form, formData.email);
+        storeSubmission(formData);
+      }, 1000);
+    }
+  }
 
-      // Store in localStorage for demo purposes
-      storeSubmission(formData);
-    }, 1000);
+  /**
+   * Submit form data to external form service (Formspree, etc.)
+   */
+  function submitToFormService(form, formData) {
+    fetch(FORM_CONFIG.endpoint, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify(formData)
+    })
+    .then(function(response) {
+      setLoadingState(form, false);
+
+      if (response.ok) {
+        // Handle success redirect if configured
+        if (FORM_CONFIG.successRedirect) {
+          window.location.href = FORM_CONFIG.successRedirect;
+          return;
+        }
+
+        showSuccessMessage(form, formData.email);
+        storeSubmission(formData);
+      } else {
+        // Parse error response
+        return response.json().then(function(data) {
+          throw new Error(data.error || 'Submission failed');
+        });
+      }
+    })
+    .catch(function(error) {
+      setLoadingState(form, false);
+      showErrorMessage(form, error.message || 'Something went wrong. Please try again.');
+      console.error('Form submission error:', error);
+    });
   }
 
   /**
@@ -283,6 +344,38 @@
       '<p>We\'ll send updates to <strong>' + escapeHtml(email) + '</strong> when Plowshare launches in your area.</p>' +
       '</div>';
     form.classList.add('is-success');
+  }
+
+  /**
+   * Show error message after failed submission
+   */
+  function showErrorMessage(form, message) {
+    // Remove any existing error message
+    var existingError = form.querySelector('.form-submit-error');
+    if (existingError) {
+      existingError.remove();
+    }
+
+    // Create and insert error message
+    var errorDiv = document.createElement('div');
+    errorDiv.className = 'form-submit-error';
+    errorDiv.setAttribute('role', 'alert');
+    errorDiv.setAttribute('aria-live', 'assertive');
+    errorDiv.innerHTML = '<p>' + escapeHtml(message) + '</p>';
+
+    var submitBtn = form.querySelector('button[type="submit"]');
+    if (submitBtn) {
+      submitBtn.parentNode.insertBefore(errorDiv, submitBtn);
+    } else {
+      form.appendChild(errorDiv);
+    }
+
+    // Auto-remove error after 5 seconds
+    setTimeout(function() {
+      if (errorDiv.parentNode) {
+        errorDiv.remove();
+      }
+    }, 5000);
   }
 
   /**
