@@ -833,6 +833,166 @@
   }
 
   /**
+   * Scroll-Triggered Reveal Animations
+   * Uses Intersection Observer for performant scroll-based animations
+   */
+  function initScrollReveal() {
+    // Check if IntersectionObserver is supported
+    if (!('IntersectionObserver' in window)) {
+      // Fallback: show all elements immediately
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(function(el) {
+        el.classList.add('is-visible');
+      });
+      return;
+    }
+
+    // Create observer with threshold options
+    var observerOptions = {
+      root: null, // viewport
+      rootMargin: '0px 0px -50px 0px', // trigger slightly before element enters viewport
+      threshold: 0.1 // trigger when 10% of element is visible
+    };
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          // Optionally unobserve after revealing (one-time animation)
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    // Observe all elements with reveal classes
+    var revealElements = document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale');
+    revealElements.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+
+    // Auto-add reveal classes to section headings and key elements
+    addAutoRevealClasses();
+  }
+
+  /**
+   * Automatically add reveal classes to appropriate elements
+   * This allows the feature to work without modifying HTML
+   */
+  function addAutoRevealClasses() {
+    // Section headings
+    document.querySelectorAll('.section h2').forEach(function(el) {
+      if (!el.classList.contains('reveal') && !el.classList.contains('is-visible')) {
+        el.classList.add('reveal');
+      }
+    });
+
+    // Section intro paragraphs
+    document.querySelectorAll('.features-intro, .how-it-works-intro, .pricing-intro, .testimonials-intro, .faq-intro, .signup-intro').forEach(function(el) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-1');
+      }
+    });
+
+    // Feature cards with stagger
+    document.querySelectorAll('.feature-card').forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // Step cards with stagger
+    document.querySelectorAll('.step-card').forEach(function(el, index) {
+      if (!el.classList.contains('reveal-scale')) {
+        el.classList.add('reveal-scale');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // Pricing cards with stagger
+    document.querySelectorAll('.pricing-card, .driver-earnings-card').forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // Testimonial cards with stagger
+    document.querySelectorAll('.testimonial-card').forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // FAQ items with stagger
+    document.querySelectorAll('.faq-item').forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // Hero benefits
+    document.querySelectorAll('.hero-benefits li').forEach(function(el, index) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+        el.classList.add('reveal-delay-' + Math.min(index + 1, 5));
+      }
+    });
+
+    // Driver benefits
+    document.querySelectorAll('.driver-benefits').forEach(function(el) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+      }
+    });
+
+    // Pricing callout
+    document.querySelectorAll('.pricing-callout').forEach(function(el) {
+      if (!el.classList.contains('reveal-scale')) {
+        el.classList.add('reveal-scale');
+      }
+    });
+
+    // CTAs at section bottoms
+    document.querySelectorAll('.how-it-works-cta').forEach(function(el) {
+      if (!el.classList.contains('reveal')) {
+        el.classList.add('reveal');
+      }
+    });
+
+    // Re-observe newly added elements
+    reobserveNewElements();
+  }
+
+  /**
+   * Re-observe elements that were dynamically assigned reveal classes
+   */
+  function reobserveNewElements() {
+    if (!('IntersectionObserver' in window)) return;
+
+    var observerOptions = {
+      root: null,
+      rootMargin: '0px 0px -50px 0px',
+      threshold: 0.1
+    };
+
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal:not(.is-visible), .reveal-left:not(.is-visible), .reveal-right:not(.is-visible), .reveal-scale:not(.is-visible)').forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  }
+
+  /**
    * Initialize all functionality when DOM is ready
    */
   function init() {
@@ -842,6 +1002,7 @@
     initSignupForms();
     initCarousel();
     initFaqAccordion();
+    initScrollReveal();
   }
 
   // Run initialization
