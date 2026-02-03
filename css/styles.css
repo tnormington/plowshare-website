@@ -3894,3 +3894,98 @@ ol {
     scroll-behavior: auto;
   }
 }
+
+/* ========================================
+   POLICY PAGES STYLES
+   ======================================== */
+
+.policy-content {
+  padding: var(--space-12) 0;
+  min-height: calc(100vh - 300px);
+  background-color: var(--color-white);
+}
+
+.policy-content article {
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--color-text-primary);
+  line-height: var(--line-height-loose);
+}
+
+.policy-content h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-dark);
+}
+
+.policy-content h2 {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
+  color: var(--color-primary-dark);
+}
+
+.policy-content h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-3);
+  color: var(--color-text-primary);
+}
+
+.policy-content p {
+  margin-bottom: var(--space-4);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-loose);
+}
+
+.policy-content ul,
+.policy-content ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-8);
+}
+
+.policy-content li {
+  margin-bottom: var(--space-3);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-loose);
+}
+
+.policy-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+.policy-content a:hover {
+  color: var(--color-primary-hover);
+  text-decoration: underline;
+}
+
+.policy-content .last-updated {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-style: italic;
+  margin-bottom: var(--space-8);
+}
+
+@media (max-width: 768px) {
+  .policy-content {
+    padding: var(--space-8) 0;
+  }
+
+  .policy-content h1 {
+    font-size: var(--font-size-3xl);
+  }
+
+  .policy-content h2 {
+    font-size: var(--font-size-xl);
+    margin-top: var(--space-6);
+  }
+
+  .policy-content h3 {
+    font-size: var(--font-size-base);
+  }
+}
