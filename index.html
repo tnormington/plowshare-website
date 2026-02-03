@@ -73,7 +73,54 @@
       <div class="container">
         <h1 id="hero-heading">Snow Removal, On Demand</h1>
         <p class="hero-subtitle">Get your driveway cleared in minutes, not hours. Plowshare connects you with trusted local plow drivers.</p>
-        <!-- Email signup form will be added here -->
+
+        <!-- Email Signup Form - Hero -->
+        <form id="hero-signup-form" class="signup-form" novalidate aria-label="Join waitlist">
+          <div class="form-group">
+            <label for="hero-email" class="visually-hidden">Email address</label>
+            <input
+              type="email"
+              id="hero-email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email address"
+              required
+              autocomplete="email"
+              aria-describedby="hero-email-error"
+            >
+            <span id="hero-email-error" class="form-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">I am a:</legend>
+            <div class="form-radio-group">
+              <label class="form-radio-label">
+                <input type="radio" name="user_type" value="property_owner" checked>
+                <span class="form-radio-custom"></span>
+                <span class="form-radio-text">Property Owner</span>
+              </label>
+              <label class="form-radio-label">
+                <input type="radio" name="user_type" value="driver">
+                <span class="form-radio-custom"></span>
+                <span class="form-radio-text">Plow Driver</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-checkbox-group">
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="consent" required aria-describedby="hero-consent-error">
+              <span class="form-checkbox-custom"></span>
+              <span class="form-checkbox-text">I agree to receive updates about Plowshare. You can unsubscribe at any time. View our <a href="/privacy" target="_blank">Privacy Policy</a>.</span>
+            </label>
+            <span id="hero-consent-error" class="form-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span class="btn-text">Join the Waitlist</span>
+            <span class="btn-loading visually-hidden" aria-hidden="true">Submitting...</span>
+          </button>
+        </form>
       </div>
     </section>
 
@@ -129,8 +176,55 @@
     <section id="signup" class="section signup-section" aria-labelledby="signup-heading">
       <div class="container">
         <h2 id="signup-heading">Be the First to Know</h2>
-        <p>Join our waitlist and get early access when we launch in your area.</p>
-        <!-- Email signup form will be added here -->
+        <p class="signup-intro">Join our waitlist and get early access when we launch in your area.</p>
+
+        <!-- Email Signup Form - Bottom Section -->
+        <form id="bottom-signup-form" class="signup-form" novalidate aria-label="Join waitlist">
+          <div class="form-group">
+            <label for="bottom-email" class="visually-hidden">Email address</label>
+            <input
+              type="email"
+              id="bottom-email"
+              name="email"
+              class="form-input"
+              placeholder="Enter your email address"
+              required
+              autocomplete="email"
+              aria-describedby="bottom-email-error"
+            >
+            <span id="bottom-email-error" class="form-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <fieldset class="form-fieldset">
+            <legend class="form-legend">I am a:</legend>
+            <div class="form-radio-group">
+              <label class="form-radio-label">
+                <input type="radio" name="user_type" value="property_owner" checked>
+                <span class="form-radio-custom"></span>
+                <span class="form-radio-text">Property Owner</span>
+              </label>
+              <label class="form-radio-label">
+                <input type="radio" name="user_type" value="driver">
+                <span class="form-radio-custom"></span>
+                <span class="form-radio-text">Plow Driver</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <div class="form-checkbox-group">
+            <label class="form-checkbox-label">
+              <input type="checkbox" name="consent" required aria-describedby="bottom-consent-error">
+              <span class="form-checkbox-custom"></span>
+              <span class="form-checkbox-text">I agree to receive updates about Plowshare. You can unsubscribe at any time. View our <a href="/privacy" target="_blank">Privacy Policy</a>.</span>
+            </label>
+            <span id="bottom-consent-error" class="form-error" role="alert" aria-live="polite"></span>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg">
+            <span class="btn-text">Join the Waitlist</span>
+            <span class="btn-loading visually-hidden" aria-hidden="true">Submitting...</span>
+          </button>
+        </form>
       </div>
     </section>
   </main>
