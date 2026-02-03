@@ -12,6 +12,10 @@
   <meta name="keywords" content="snow plowing, snow removal, on-demand, winter services, driveway clearing, property maintenance">
   <meta name="author" content="Plowshare">
   <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://plowshare.app/">
+  <link rel="alternate" hreflang="en" href="https://plowshare.app/">
+  <meta name="color-scheme" content="light">
+  <meta name="format-detection" content="telephone=no">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
@@ -33,6 +37,122 @@
   <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
   <link rel="manifest" href="/site.webmanifest">
   <meta name="theme-color" content="#1a73e8">
+
+  <!-- JSON-LD Structured Data for SEO -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Plowshare",
+    "url": "https://plowshare.app/",
+    "logo": "https://plowshare.app/images/og-image.png",
+    "description": "On-demand snow plowing service connecting property owners with reliable snow plow drivers.",
+    "sameAs": [],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer support",
+      "url": "https://plowshare.app/#signup"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "Snow Removal Service",
+    "name": "Plowshare On-Demand Snow Plowing",
+    "description": "Request snow removal in minutes. Plowshare connects property owners with reliable snow plow drivers for on-demand and subscription-based snow clearing services.",
+    "provider": {
+      "@type": "Organization",
+      "name": "Plowshare",
+      "url": "https://plowshare.app/"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Snow Plowing Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "On-Demand Snow Plowing",
+            "description": "Single-request snow removal with prices starting at $35-75 for standard residential driveways"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Subscription Snow Plowing",
+            "description": "Automatic service after every snowfall with 20-30% savings off on-demand rates"
+          }
+        }
+      ]
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What areas does Plowshare serve?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Plowshare is launching in select markets across the Midwest and Northeast United States, where snow removal is a seasonal necessity. We're starting with major metropolitan areas and surrounding suburbs, then expanding based on demand. Sign up for our waitlist to be notified when we launch in your area."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How much does snow plowing cost?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Pricing varies based on your driveway size and service type. On-demand requests typically start at $35-75 for standard residential driveways, with prices displayed upfront before you confirm. Subscription plans offer significant savings—typically 20-30% off on-demand rates."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What are the requirements to become a Plowshare driver?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "To join Plowshare as a driver, you'll need: a valid driver's license and clean driving record, your own snow plow equipment (truck with plow attachment, or commercial-grade equipment), proof of liability insurance, pass a background check, and a smartphone to use the Plowshare driver app."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What happens during a major snowstorm?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "During major storm events, subscription customers get priority as drivers serve their roster customers first. We show transparent wait times upfront, have no surge pricing during storms, and may temporarily pause service if conditions are too dangerous until roads are safe."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When will the Plowshare app be available?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The Plowshare app will be available on both iOS and Android. We're currently in development and planning to launch before the next winter season. Join our waitlist to get notified when we launch and receive early access."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I cancel a request or subscription?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "On-demand requests can be cancelled free of charge before a driver is assigned. Once a driver accepts, a small cancellation fee may apply. Subscriptions can be cancelled anytime with no penalties—your service continues until the end of your current billing period."
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Preconnect to external origins for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

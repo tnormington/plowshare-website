@@ -1,0 +1,8 @@
+# Robots.txt for Plowshare
+# https://plowshare.app/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://plowshare.app/sitemap.xml
