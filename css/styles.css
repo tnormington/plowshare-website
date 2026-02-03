@@ -1255,6 +1255,125 @@ ol {
 }
 
 /* ========================================
+   APP STORE BADGES
+   Coming soon state for iOS and Android
+   ======================================== */
+
+.app-store-badges {
+  margin-top: var(--space-8);
+  text-align: center;
+}
+
+.app-store-badges-label {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-3);
+  text-transform: uppercase;
+  letter-spacing: var(--letter-spacing-wide);
+  font-weight: var(--font-weight-medium);
+}
+
+.app-store-badges-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+@media (min-width: 480px) {
+  .app-store-badges-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.app-store-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-3) var(--space-5);
+  background: var(--color-gray-900);
+  color: var(--color-white);
+  border-radius: var(--border-radius-md);
+  text-decoration: none;
+  min-width: 160px;
+  position: relative;
+  overflow: hidden;
+  transition: transform var(--transition-base), box-shadow var(--transition-base), opacity var(--transition-base);
+}
+
+.app-store-badge-content {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.app-store-badge-icon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+}
+
+.app-store-badge-text {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  line-height: 1.2;
+}
+
+.app-store-badge-subtitle {
+  font-size: var(--font-size-xs);
+  opacity: 0.85;
+}
+
+.app-store-badge-title {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Disabled/Coming Soon State */
+.app-store-badge-disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  opacity: 0.75;
+  background: var(--color-gray-700);
+}
+
+.app-store-badge-coming-soon {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: 9px;
+  font-weight: var(--font-weight-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 2px 8px;
+  border-bottom-left-radius: var(--border-radius-sm);
+}
+
+/* Active State (for when app is available - future use) */
+.app-store-badge:not(.app-store-badge-disabled):hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.app-store-badge:not(.app-store-badge-disabled):focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Signup section specific styling */
+.signup-section .app-store-badges {
+  margin-top: var(--space-10);
+}
+
+.signup-section .app-store-badges-label {
+  color: var(--color-gray-700);
+}
+
+/* ========================================
    RESPONSIVE GRID SYSTEM
    Mobile-first 12-column CSS Grid layout
    ======================================== */
@@ -3359,4 +3478,419 @@ ol {
 .faq-answer-content strong {
   color: var(--color-text-primary);
   font-weight: var(--font-weight-semibold);
+}
+
+/* ========================================
+   MICRO-INTERACTIONS & ANIMATIONS
+   Scroll reveals, hover effects, focus states
+   ======================================== */
+
+/* ======================
+   SCROLL-TRIGGERED REVEALS
+   ====================== */
+
+/* Base reveal styles - elements start hidden and animate in */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal from different directions */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-left.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-right.is-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal-scale.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Staggered delays for grid items */
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ======================
+   ENHANCED BUTTON HOVER EFFECTS
+   ====================== */
+
+/* Primary button enhanced hover */
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+  transition: background-color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base);
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--color-primary-hover);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.35);
+  transform: translateY(-2px);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+  box-shadow: 0 2px 6px rgba(26, 115, 232, 0.3);
+}
+
+/* Button ripple effect */
+.btn::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: width 0.4s ease-out, height 0.4s ease-out, opacity 0.4s ease-out;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btn:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+/* Nav CTA button hover enhancement */
+.nav-cta {
+  transition: background-color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base) !important;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.3);
+}
+
+/* ======================
+   ENHANCED FORM FOCUS STATES
+   ====================== */
+
+/* Input focus glow animation */
+.form-input {
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              background-color var(--transition-base);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15),
+              0 0 20px rgba(26, 115, 232, 0.1);
+  background-color: var(--color-white);
+}
+
+/* Subtle lift on hover when not focused */
+.form-input:hover:not(:focus):not(:disabled) {
+  border-color: var(--color-gray-700);
+}
+
+/* Radio label hover enhancement */
+.form-radio-label {
+  transition: border-color var(--transition-base),
+              background-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-fast);
+}
+
+.form-radio-label:hover {
+  border-color: var(--color-primary);
+  background-color: rgba(26, 115, 232, 0.02);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Checkbox hover enhancement */
+.form-checkbox-custom {
+  transition: border-color var(--transition-base),
+              background-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-fast);
+}
+
+.form-checkbox-label:hover .form-checkbox-custom {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.1);
+}
+
+/* ======================
+   ENHANCED CARD TRANSITIONS
+   ====================== */
+
+/* Feature cards */
+.feature-card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.feature-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Feature icon pulse on card hover */
+.feature-icon {
+  transition: transform var(--transition-base),
+              background-color var(--transition-base);
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  background-color: rgba(26, 115, 232, 0.15);
+}
+
+/* Step card enhancements */
+.step-card {
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-base);
+}
+
+.step-number {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.step-card:hover .step-number {
+  transform: translateX(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(26, 115, 232, 0.5);
+}
+
+.step-icon {
+  transition: transform var(--transition-base),
+              background-color var(--transition-base);
+}
+
+.step-card:hover .step-icon {
+  transform: scale(1.05);
+  background-color: rgba(26, 115, 232, 0.12);
+}
+
+/* Pricing cards */
+.pricing-card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base),
+              border-color var(--transition-base);
+}
+
+.pricing-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+}
+
+.pricing-card-featured:hover {
+  box-shadow: 0 16px 32px rgba(26, 115, 232, 0.25);
+}
+
+/* Testimonial cards */
+.testimonial-card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* FAQ items */
+.faq-item {
+  transition: border-color var(--transition-base),
+              box-shadow var(--transition-base),
+              transform var(--transition-fast);
+}
+
+.faq-item:hover {
+  border-color: var(--color-gray-200);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateX(2px);
+}
+
+.faq-item.is-open:hover {
+  transform: none;
+}
+
+/* ======================
+   LINK & TEXT EFFECTS
+   ====================== */
+
+/* Underline animation for footer links */
+.footer-nav-group a {
+  position: relative;
+}
+
+.footer-nav-group a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: var(--color-footer-text-muted);
+  transition: width var(--transition-base);
+}
+
+.footer-nav-group a:hover::after {
+  width: 100%;
+}
+
+/* Hero highlight text subtle pulse */
+@keyframes subtlePulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.85; }
+}
+
+.hero-highlight {
+  animation: subtlePulse 3s ease-in-out infinite;
+}
+
+/* Benefit check icon bounce on scroll reveal */
+.benefit-icon {
+  transition: transform var(--transition-base);
+}
+
+.hero-benefits li:hover .benefit-icon {
+  transform: scale(1.2);
+}
+
+/* ======================
+   SOCIAL LINKS
+   ====================== */
+
+.social-link {
+  transition: background-color var(--transition-base),
+              transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.social-link:hover {
+  background: var(--color-primary);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 4px 12px rgba(26, 115, 232, 0.4);
+}
+
+/* ======================
+   MOCKUP CARDS
+   ====================== */
+
+.mockup-card {
+  transition: transform var(--transition-base),
+              box-shadow var(--transition-base);
+}
+
+.mockup-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================
+   CAROUSEL ENHANCEMENTS
+   ====================== */
+
+.carousel-indicator {
+  transition: background-color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base);
+}
+
+.carousel-indicator:hover {
+  transform: scale(1.2);
+  box-shadow: 0 0 8px rgba(26, 115, 232, 0.3);
+}
+
+.carousel-nav {
+  transition: background-color var(--transition-base),
+              transform var(--transition-fast),
+              box-shadow var(--transition-base),
+              opacity var(--transition-base);
+}
+
+.carousel-nav:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* ======================
+   LOADING STATES ENHANCEMENT
+   ====================== */
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.is-loading-skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-gray-200) 0%,
+    var(--color-gray-50) 50%,
+    var(--color-gray-200) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
+}
+
+/* ======================
+   ACCESSIBILITY: REDUCED MOTION
+   ====================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal,
+  .reveal-left,
+  .reveal-right,
+  .reveal-scale {
+    opacity: 1;
+    transform: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
 }
