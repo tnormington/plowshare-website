@@ -27,15 +27,19 @@
    * Mobile Navigation Toggle
    */
   function initNavigation() {
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    var navToggle = document.querySelector('.nav-toggle');
+    var navMenu = document.querySelector('.nav-menu');
+    var header = document.querySelector('.site-header');
 
     if (!navToggle || !navMenu) return;
 
     navToggle.addEventListener('click', function() {
-      const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+      var isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
       navToggle.setAttribute('aria-expanded', !isExpanded);
       navMenu.classList.toggle('is-open');
+
+      // Prevent body scroll when menu is open
+      document.body.style.overflow = isExpanded ? '' : 'hidden';
     });
 
     // Close menu when clicking on a link
@@ -43,6 +47,7 @@
       link.addEventListener('click', function() {
         navToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
       });
     });
 
@@ -51,9 +56,46 @@
       if (e.key === 'Escape' && navMenu.classList.contains('is-open')) {
         navToggle.setAttribute('aria-expanded', 'false');
         navMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
         navToggle.focus();
       }
     });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', function(e) {
+      if (navMenu.classList.contains('is-open') &&
+          !navMenu.contains(e.target) &&
+          !navToggle.contains(e.target)) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        navMenu.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    });
+
+    // Add scroll effect to header
+    if (header) {
+      var scrollThreshold = 10;
+      var ticking = false;
+
+      function updateHeader() {
+        if (window.scrollY > scrollThreshold) {
+          header.classList.add('is-scrolled');
+        } else {
+          header.classList.remove('is-scrolled');
+        }
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(updateHeader);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      // Initial check
+      updateHeader();
+    }
   }
 
   /**
