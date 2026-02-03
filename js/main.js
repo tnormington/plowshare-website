@@ -14,10 +14,10 @@
   var FORM_CONFIG = {
     // Formspree endpoint - replace with your form ID
     // Get your form ID at https://formspree.io
-    endpoint: 'https://formspree.io/f/YOUR_FORM_ID',
+    endpoint: 'https://formspree.io/f/xjgoqzzd',
 
     // Set to true when you have configured your endpoint
-    enabled: false,
+    enabled: true,
 
     // Success redirect URL (optional - leave null to show inline message)
     successRedirect: null
