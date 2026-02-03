@@ -282,7 +282,89 @@
     <section id="app-preview" class="section app-preview-section" aria-labelledby="app-preview-heading">
       <div class="container">
         <h2 id="app-preview-heading">See It In Action</h2>
-        <!-- App mockups/screenshots will be added here -->
+        <p class="app-preview-intro">Experience the simplicity of on-demand snow removal. Request service, track your driver, and manage everything from your phone.</p>
+
+        <!-- App Mockups Carousel -->
+        <div class="app-carousel" role="region" aria-label="App screenshots carousel" aria-roledescription="carousel">
+          <!-- Carousel Navigation - Previous -->
+          <button class="carousel-nav carousel-nav-prev" aria-label="Previous screenshot" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- Carousel Track -->
+          <div class="carousel-viewport">
+            <div class="carousel-track" role="list">
+              <!-- Mockup 1: Home Screen -->
+              <article class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="1 of 4">
+                <div class="mockup-card">
+                  <div class="mockup-image-wrapper">
+                    <img src="images/mockup-home.svg" alt="Plowshare app home screen showing property dashboard and quick actions" class="mockup-image" loading="lazy" width="280" height="560">
+                  </div>
+                  <div class="mockup-info">
+                    <h3 class="mockup-title">Home Dashboard</h3>
+                    <p class="mockup-description">View your properties, check service status, and request a plow with one tap.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Mockup 2: Request Flow -->
+              <article class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="2 of 4">
+                <div class="mockup-card">
+                  <div class="mockup-image-wrapper">
+                    <img src="images/mockup-request.svg" alt="Plowshare app request flow showing service type selection and driveway size options" class="mockup-image" loading="lazy" width="280" height="560">
+                  </div>
+                  <div class="mockup-info">
+                    <h3 class="mockup-title">Easy Request Flow</h3>
+                    <p class="mockup-description">Choose between on-demand service or seasonal subscription in just a few taps.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Mockup 3: Tracking Map -->
+              <article class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="3 of 4">
+                <div class="mockup-card">
+                  <div class="mockup-image-wrapper">
+                    <img src="images/mockup-tracking.svg" alt="Plowshare app live tracking map showing driver location and estimated arrival time" class="mockup-image" loading="lazy" width="280" height="560">
+                  </div>
+                  <div class="mockup-info">
+                    <h3 class="mockup-title">Real-Time Tracking</h3>
+                    <p class="mockup-description">Watch your driver on the map with live ETA updates. Message or call directly.</p>
+                  </div>
+                </div>
+              </article>
+
+              <!-- Mockup 4: Profile -->
+              <article class="carousel-slide" role="listitem" aria-roledescription="slide" aria-label="4 of 4">
+                <div class="mockup-card">
+                  <div class="mockup-image-wrapper">
+                    <img src="images/mockup-profile.svg" alt="Plowshare app profile screen showing user stats, properties, and account settings" class="mockup-image" loading="lazy" width="280" height="560">
+                  </div>
+                  <div class="mockup-info">
+                    <h3 class="mockup-title">Your Profile</h3>
+                    <p class="mockup-description">Manage properties, payment methods, and preferences all in one place.</p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+
+          <!-- Carousel Navigation - Next -->
+          <button class="carousel-nav carousel-nav-next" aria-label="Next screenshot" type="button">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </button>
+
+          <!-- Carousel Indicators -->
+          <div class="carousel-indicators" role="tablist" aria-label="Slide indicators">
+            <button class="carousel-indicator is-active" role="tab" aria-selected="true" aria-label="Go to slide 1" data-slide="0" type="button"></button>
+            <button class="carousel-indicator" role="tab" aria-selected="false" aria-label="Go to slide 2" data-slide="1" type="button"></button>
+            <button class="carousel-indicator" role="tab" aria-selected="false" aria-label="Go to slide 3" data-slide="2" type="button"></button>
+            <button class="carousel-indicator" role="tab" aria-selected="false" aria-label="Go to slide 4" data-slide="3" type="button"></button>
+          </div>
+        </div>
       </div>
     </section>
 

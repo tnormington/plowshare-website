@@ -2215,3 +2215,316 @@ ol {
     display: none;
   }
 }
+
+/* ========================================
+   APP PREVIEW SECTION
+   Responsive carousel for app mockups
+   ======================================== */
+
+.app-preview-section {
+  background-color: var(--color-white);
+  overflow: hidden;
+}
+
+.app-preview-intro {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-10);
+  line-height: var(--line-height-base);
+}
+
+@media (min-width: 768px) {
+  .app-preview-intro {
+    font-size: var(--font-size-lg);
+    margin-bottom: var(--space-12);
+  }
+}
+
+/* Carousel Container */
+.app-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-4);
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .app-carousel {
+    padding: 0 var(--space-12);
+  }
+}
+
+/* Carousel Viewport */
+.carousel-viewport {
+  overflow: hidden;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* Carousel Track */
+.carousel-track {
+  display: flex;
+  gap: var(--space-6);
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+}
+
+@media (min-width: 768px) {
+  .carousel-track {
+    gap: var(--space-8);
+  }
+}
+
+/* Carousel Slide */
+.carousel-slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
+@media (min-width: 480px) {
+  .carousel-slide {
+    flex: 0 0 calc(50% - var(--space-3));
+  }
+}
+
+@media (min-width: 768px) {
+  .carousel-slide {
+    flex: 0 0 calc(50% - var(--space-4));
+  }
+}
+
+@media (min-width: 1024px) {
+  .carousel-slide {
+    flex: 0 0 calc(25% - var(--space-6));
+  }
+}
+
+/* Mockup Card */
+.mockup-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--space-4);
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.mockup-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Mockup Image Wrapper */
+.mockup-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto;
+  background: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-3);
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+@media (min-width: 768px) {
+  .mockup-image-wrapper {
+    max-width: 200px;
+  }
+}
+
+/* Mockup Image */
+.mockup-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--border-radius-md);
+  filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.15));
+}
+
+/* Mockup Info */
+.mockup-info {
+  text-align: center;
+  padding: var(--space-4) var(--space-2) var(--space-2);
+}
+
+.mockup-title {
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+@media (min-width: 768px) {
+  .mockup-title {
+    font-size: var(--font-size-md);
+  }
+}
+
+.mockup-description {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-base);
+  margin: 0;
+}
+
+/* Carousel Navigation Buttons */
+.carousel-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-full);
+  color: var(--color-primary);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  z-index: var(--z-index-dropdown);
+  box-shadow: var(--shadow-md);
+}
+
+.carousel-nav:hover:not(:disabled) {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.carousel-nav:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.carousel-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.carousel-nav-prev {
+  left: 0;
+}
+
+.carousel-nav-next {
+  right: 0;
+}
+
+@media (min-width: 768px) {
+  .carousel-nav {
+    width: 52px;
+    height: 52px;
+  }
+
+  .carousel-nav-prev {
+    left: var(--space-2);
+  }
+
+  .carousel-nav-next {
+    right: var(--space-2);
+  }
+}
+
+/* Hide nav buttons on desktop when all slides are visible */
+@media (min-width: 1024px) {
+  .carousel-nav {
+    display: none;
+  }
+
+  .app-carousel {
+    padding: 0;
+  }
+}
+
+/* Carousel Indicators */
+.carousel-indicators {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .carousel-indicators {
+    margin-top: var(--space-8);
+  }
+}
+
+/* Hide indicators on desktop when all slides visible */
+@media (min-width: 1024px) {
+  .carousel-indicators {
+    display: none;
+  }
+}
+
+.carousel-indicator {
+  width: 10px;
+  height: 10px;
+  padding: 0;
+  border: 2px solid var(--color-border);
+  border-radius: var(--border-radius-full);
+  background: transparent;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+
+.carousel-indicator:hover {
+  border-color: var(--color-primary);
+}
+
+.carousel-indicator:focus-visible {
+  outline: 2px solid var(--color-focus);
+  outline-offset: 2px;
+}
+
+.carousel-indicator.is-active {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  transform: scale(1.2);
+}
+
+/* Touch/Swipe Support Styles */
+.carousel-viewport {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track.is-dragging {
+  cursor: grabbing;
+  transition: none;
+}
+
+/* Responsive Layout for Larger Screens - Show all 4 mockups */
+@media (min-width: 1024px) {
+  .carousel-viewport {
+    overflow: visible;
+  }
+
+  .carousel-track {
+    gap: var(--space-6);
+    justify-content: center;
+  }
+
+  .carousel-slide {
+    flex: 0 0 auto;
+    width: calc(25% - var(--space-5));
+    max-width: 240px;
+  }
+
+  .mockup-card {
+    padding: var(--space-5);
+  }
+
+  .mockup-image-wrapper {
+    max-width: 180px;
+  }
+}

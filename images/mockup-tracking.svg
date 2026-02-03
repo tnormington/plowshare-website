@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280" height="560" viewBox="0 0 280 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone Frame -->
+  <rect x="2" y="2" width="276" height="556" rx="32" fill="#1a1a2e" stroke="#333" stroke-width="2"/>
+
+  <!-- Screen -->
+  <rect x="12" y="12" width="256" height="536" rx="24" fill="#ffffff"/>
+
+  <!-- Map Background -->
+  <rect x="12" y="12" width="256" height="360" rx="24 24 0 0" fill="#e8f5e9"/>
+
+  <!-- Map Grid Lines -->
+  <g stroke="#c8e6c9" stroke-width="1">
+    <line x1="12" y1="80" x2="268" y2="80"/>
+    <line x1="12" y1="140" x2="268" y2="140"/>
+    <line x1="12" y1="200" x2="268" y2="200"/>
+    <line x1="12" y1="260" x2="268" y2="260"/>
+    <line x1="12" y1="320" x2="268" y2="320"/>
+    <line x1="70" y1="12" x2="70" y2="372"/>
+    <line x1="140" y1="12" x2="140" y2="372"/>
+    <line x1="210" y1="12" x2="210" y2="372"/>
+  </g>
+
+  <!-- Map Roads -->
+  <g fill="#fff" stroke="#ddd" stroke-width="1">
+    <rect x="30" y="100" width="200" height="20" rx="2"/>
+    <rect x="80" y="60" width="20" height="240" rx="2"/>
+    <rect x="160" y="140" width="20" height="180" rx="2"/>
+    <rect x="30" y="220" width="150" height="16" rx="2"/>
+  </g>
+
+  <!-- Route Line (dashed, showing path) -->
+  <path d="M90 310 L90 230 L100 228 L170 228 L170 180"
+        stroke="#1a73e8" stroke-width="4" stroke-linecap="round"
+        stroke-dasharray="8 4" fill="none"/>
+
+  <!-- Your Location Marker -->
+  <g transform="translate(170, 150)">
+    <circle cx="0" cy="0" r="24" fill="rgba(26, 115, 232, 0.2)"/>
+    <circle cx="0" cy="0" r="12" fill="#1a73e8" stroke="#fff" stroke-width="3"/>
+    <circle cx="0" cy="0" r="4" fill="#fff"/>
+  </g>
+  <text x="170" y="190" fill="#1a237e" font-family="system-ui" font-size="11" text-anchor="middle" font-weight="600">Your Location</text>
+
+  <!-- Driver Location Marker (Plow Icon) -->
+  <g transform="translate(90, 280)">
+    <circle cx="0" cy="0" r="20" fill="#4caf50"/>
+    <rect x="-10" y="-6" width="20" height="12" rx="2" fill="#fff"/>
+    <rect x="-14" y="-2" width="6" height="6" rx="1" fill="#fff"/>
+    <circle cx="-6" cy="6" r="3" fill="#333"/>
+    <circle cx="6" cy="6" r="3" fill="#333"/>
+  </g>
+
+  <!-- Status Bar Overlay -->
+  <rect x="12" y="12" width="256" height="44" rx="24" fill="rgba(255,255,255,0.95)"/>
+  <text x="140" y="38" fill="#333" font-family="system-ui" font-size="14" text-anchor="middle" font-weight="500">9:41</text>
+
+  <!-- Info Card -->
+  <rect x="12" y="360" width="256" height="188" rx="0 0 24 24" fill="#ffffff"/>
+
+  <!-- Driver Info -->
+  <g transform="translate(24, 376)">
+    <circle cx="28" cy="28" r="28" fill="#e3f2fd"/>
+    <circle cx="28" cy="22" r="12" fill="#1a73e8"/>
+    <path d="M28 36 C16 36 10 44 10 52 L46 52 C46 44 40 36 28 36" fill="#1a73e8"/>
+  </g>
+  <text x="92" y="392" fill="#333" font-family="system-ui" font-size="16" font-weight="600">Mike's Plowing</text>
+  <g transform="translate(92, 400)">
+    <path d="M8 0 L10 4 L14 4 L11 7 L12 11 L8 9 L4 11 L5 7 L2 4 L6 4 Z" fill="#ffc107"/>
+    <text x="18" y="10" fill="#333" font-family="system-ui" font-size="13">4.9 (127 reviews)</text>
+  </g>
+
+  <!-- ETA Card -->
+  <rect x="24" y="440" width="232" height="56" rx="12" fill="#e3f2fd"/>
+  <text x="140" y="462" fill="#1a237e" font-family="system-ui" font-size="13" text-anchor="middle">Estimated arrival</text>
+  <text x="140" y="484" fill="#1a73e8" font-family="system-ui" font-size="22" text-anchor="middle" font-weight="700">8 minutes</text>
+
+  <!-- Action Buttons -->
+  <g transform="translate(24, 508)">
+    <rect x="0" y="0" width="108" height="40" rx="8" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+    <circle cx="24" cy="20" r="12" fill="#f5f5f5"/>
+    <path d="M24 14 L24 26 M18 20 L30 20" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+    <text x="64" y="24" fill="#333" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="500">Message</text>
+  </g>
+  <g transform="translate(148, 508)">
+    <rect x="0" y="0" width="108" height="40" rx="8" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+    <circle cx="24" cy="20" r="12" fill="#f5f5f5"/>
+    <path d="M20 16 L20 24 L28 20 Z" fill="#333"/>
+    <text x="64" y="24" fill="#333" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="500">Call</text>
+  </g>
+</svg>

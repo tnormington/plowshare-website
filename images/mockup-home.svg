@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="280" height="560" viewBox="0 0 280 560" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone Frame -->
+  <rect x="2" y="2" width="276" height="556" rx="32" fill="#1a1a2e" stroke="#333" stroke-width="2"/>
+
+  <!-- Screen -->
+  <rect x="12" y="12" width="256" height="536" rx="24" fill="#ffffff"/>
+
+  <!-- Status Bar -->
+  <rect x="12" y="12" width="256" height="44" rx="24" fill="#f5f5f5"/>
+  <text x="140" y="38" fill="#333" font-family="system-ui" font-size="14" text-anchor="middle" font-weight="500">9:41</text>
+
+  <!-- Header -->
+  <rect x="12" y="56" width="256" height="56" fill="#ffffff"/>
+  <text x="140" y="92" fill="#1a73e8" font-family="system-ui" font-size="20" text-anchor="middle" font-weight="700">Plowshare</text>
+
+  <!-- Welcome Card -->
+  <rect x="24" y="124" width="232" height="100" rx="16" fill="linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)"/>
+  <defs>
+    <linearGradient id="heroGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e3f2fd"/>
+      <stop offset="100%" style="stop-color:#bbdefb"/>
+    </linearGradient>
+  </defs>
+  <rect x="24" y="124" width="232" height="100" rx="16" fill="url(#heroGrad)"/>
+  <text x="40" y="156" fill="#1a237e" font-family="system-ui" font-size="18" font-weight="600">Welcome back!</text>
+  <text x="40" y="180" fill="#455a64" font-family="system-ui" font-size="13">Your driveway is clear.</text>
+  <text x="40" y="200" fill="#455a64" font-family="system-ui" font-size="13">Last service: 2 days ago</text>
+
+  <!-- Quick Actions -->
+  <text x="24" y="256" fill="#333" font-family="system-ui" font-size="16" font-weight="600">Quick Actions</text>
+
+  <!-- Request Button -->
+  <rect x="24" y="272" width="108" height="80" rx="12" fill="#1a73e8"/>
+  <circle cx="78" cy="302" r="16" fill="rgba(255,255,255,0.2)"/>
+  <path d="M78 294 L78 310 M70 302 L86 302" stroke="#fff" stroke-width="2.5" stroke-linecap="round"/>
+  <text x="78" y="340" fill="#ffffff" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="500">Request Plow</text>
+
+  <!-- Schedule Button -->
+  <rect x="148" y="272" width="108" height="80" rx="12" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <circle cx="202" cy="302" r="16" fill="#f5f5f5"/>
+  <rect x="194" y="292" width="16" height="16" rx="2" stroke="#1a73e8" stroke-width="2" fill="none"/>
+  <path d="M194 300 L210 300" stroke="#1a73e8" stroke-width="2"/>
+  <text x="202" y="340" fill="#333" font-family="system-ui" font-size="12" text-anchor="middle" font-weight="500">Schedule</text>
+
+  <!-- Active Services Section -->
+  <text x="24" y="388" fill="#333" font-family="system-ui" font-size="16" font-weight="600">Your Properties</text>
+
+  <!-- Property Card 1 -->
+  <rect x="24" y="404" width="232" height="72" rx="12" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <circle cx="56" cy="440" r="20" fill="#e3f2fd"/>
+  <path d="M56 430 L44 440 L48 440 L48 450 L64 450 L64 440 L68 440 Z" fill="#1a73e8"/>
+  <text x="88" y="434" fill="#333" font-family="system-ui" font-size="14" font-weight="500">123 Main Street</text>
+  <text x="88" y="454" fill="#455a64" font-family="system-ui" font-size="12">Subscribed - Auto-plow enabled</text>
+  <circle cx="236" cy="440" r="6" fill="#4caf50"/>
+
+  <!-- Property Card 2 -->
+  <rect x="24" y="488" width="232" height="48" rx="12" fill="#f5f5f5" stroke-dasharray="4 4" stroke="#ccc" stroke-width="1"/>
+  <text x="140" y="518" fill="#757575" font-family="system-ui" font-size="13" text-anchor="middle">+ Add property</text>
+
+  <!-- Bottom Navigation -->
+  <rect x="12" y="504" width="256" height="44" rx="0 0 24 24" fill="#ffffff"/>
+  <line x1="12" y1="504" x2="268" y2="504" stroke="#e0e0e0" stroke-width="1"/>
+
+  <g transform="translate(50, 516)">
+    <path d="M10 4 L2 10 L4 10 L4 16 L16 16 L16 10 L18 10 Z" fill="#1a73e8"/>
+    <text x="10" y="24" fill="#1a73e8" font-family="system-ui" font-size="10" text-anchor="middle">Home</text>
+  </g>
+
+  <g transform="translate(118, 516)">
+    <circle cx="10" cy="8" r="6" stroke="#999" stroke-width="2" fill="none"/>
+    <path d="M14 12 L18 16" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+    <text x="10" y="24" fill="#999" font-family="system-ui" font-size="10" text-anchor="middle">Activity</text>
+  </g>
+
+  <g transform="translate(186, 516)">
+    <circle cx="10" cy="10" r="8" stroke="#999" stroke-width="2" fill="none"/>
+    <path d="M10 6 L10 10 L14 10" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+    <text x="10" y="24" fill="#999" font-family="system-ui" font-size="10" text-anchor="middle">Profile</text>
+  </g>
+</svg>

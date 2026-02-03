@@ -538,6 +538,220 @@
   }
 
   /**
+   * App Mockups Carousel
+   */
+  function initCarousel() {
+    var carousel = document.querySelector('.app-carousel');
+    if (!carousel) return;
+
+    var track = carousel.querySelector('.carousel-track');
+    var slides = carousel.querySelectorAll('.carousel-slide');
+    var prevBtn = carousel.querySelector('.carousel-nav-prev');
+    var nextBtn = carousel.querySelector('.carousel-nav-next');
+    var indicators = carousel.querySelectorAll('.carousel-indicator');
+
+    if (slides.length === 0) return;
+
+    var currentIndex = 0;
+    var slidesPerView = 1;
+    var totalSlides = slides.length;
+    var isDragging = false;
+    var startX = 0;
+    var currentTranslate = 0;
+    var prevTranslate = 0;
+
+    // Calculate slides per view based on viewport
+    function updateSlidesPerView() {
+      var width = window.innerWidth;
+      if (width >= 1024) {
+        slidesPerView = 4; // All slides visible on desktop
+      } else if (width >= 768) {
+        slidesPerView = 2;
+      } else if (width >= 480) {
+        slidesPerView = 2;
+      } else {
+        slidesPerView = 1;
+      }
+    }
+
+    // Get slide width including gap
+    function getSlideWidth() {
+      if (slides.length === 0) return 0;
+      var slideRect = slides[0].getBoundingClientRect();
+      var gap = parseInt(getComputedStyle(track).gap) || 24;
+      return slideRect.width + gap;
+    }
+
+    // Update carousel position
+    function updateCarousel(animate) {
+      if (animate === undefined) animate = true;
+
+      var slideWidth = getSlideWidth();
+      var maxIndex = Math.max(0, totalSlides - slidesPerView);
+      currentIndex = Math.max(0, Math.min(currentIndex, maxIndex));
+
+      var translateX = -currentIndex * slideWidth;
+      currentTranslate = translateX;
+      prevTranslate = translateX;
+
+      if (animate) {
+        track.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
+      } else {
+        track.style.transition = 'none';
+      }
+      track.style.transform = 'translateX(' + translateX + 'px)';
+
+      updateButtons();
+      updateIndicators();
+    }
+
+    // Update navigation button states
+    function updateButtons() {
+      var maxIndex = Math.max(0, totalSlides - slidesPerView);
+
+      if (prevBtn) {
+        prevBtn.disabled = currentIndex === 0;
+      }
+      if (nextBtn) {
+        nextBtn.disabled = currentIndex >= maxIndex;
+      }
+    }
+
+    // Update indicator states
+    function updateIndicators() {
+      indicators.forEach(function(indicator, index) {
+        if (index === currentIndex) {
+          indicator.classList.add('is-active');
+          indicator.setAttribute('aria-selected', 'true');
+        } else {
+          indicator.classList.remove('is-active');
+          indicator.setAttribute('aria-selected', 'false');
+        }
+      });
+    }
+
+    // Navigate to specific slide
+    function goToSlide(index) {
+      var maxIndex = Math.max(0, totalSlides - slidesPerView);
+      currentIndex = Math.max(0, Math.min(index, maxIndex));
+      updateCarousel();
+    }
+
+    // Navigate to previous slide
+    function prevSlide() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    }
+
+    // Navigate to next slide
+    function nextSlide() {
+      var maxIndex = Math.max(0, totalSlides - slidesPerView);
+      if (currentIndex < maxIndex) {
+        currentIndex++;
+        updateCarousel();
+      }
+    }
+
+    // Touch/Mouse events for swipe support
+    function getPositionX(e) {
+      return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    }
+
+    function touchStart(e) {
+      isDragging = true;
+      startX = getPositionX(e);
+      track.classList.add('is-dragging');
+    }
+
+    function touchMove(e) {
+      if (!isDragging) return;
+
+      var currentX = getPositionX(e);
+      var diff = currentX - startX;
+      currentTranslate = prevTranslate + diff;
+      track.style.transform = 'translateX(' + currentTranslate + 'px)';
+    }
+
+    function touchEnd() {
+      if (!isDragging) return;
+
+      isDragging = false;
+      track.classList.remove('is-dragging');
+
+      var diff = currentTranslate - prevTranslate;
+      var threshold = getSlideWidth() * 0.2;
+
+      if (diff < -threshold) {
+        nextSlide();
+      } else if (diff > threshold) {
+        prevSlide();
+      } else {
+        updateCarousel();
+      }
+    }
+
+    // Event listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', prevSlide);
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', nextSlide);
+    }
+
+    indicators.forEach(function(indicator, index) {
+      indicator.addEventListener('click', function() {
+        goToSlide(index);
+      });
+    });
+
+    // Touch events
+    track.addEventListener('touchstart', touchStart, { passive: true });
+    track.addEventListener('touchmove', touchMove, { passive: true });
+    track.addEventListener('touchend', touchEnd);
+
+    // Mouse events for desktop drag
+    track.addEventListener('mousedown', touchStart);
+    track.addEventListener('mousemove', touchMove);
+    track.addEventListener('mouseup', touchEnd);
+    track.addEventListener('mouseleave', function() {
+      if (isDragging) {
+        touchEnd();
+      }
+    });
+
+    // Prevent link dragging
+    track.addEventListener('dragstart', function(e) {
+      e.preventDefault();
+    });
+
+    // Keyboard navigation
+    carousel.addEventListener('keydown', function(e) {
+      if (e.key === 'ArrowLeft') {
+        prevSlide();
+      } else if (e.key === 'ArrowRight') {
+        nextSlide();
+      }
+    });
+
+    // Handle resize
+    var resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(function() {
+        updateSlidesPerView();
+        updateCarousel(false);
+      }, 100);
+    });
+
+    // Initialize
+    updateSlidesPerView();
+    updateCarousel(false);
+  }
+
+  /**
    * Initialize all functionality when DOM is ready
    */
   function init() {
@@ -545,6 +759,7 @@
     updateCopyrightYear();
     initSmoothScroll();
     initSignupForms();
+    initCarousel();
   }
 
   // Run initialization
