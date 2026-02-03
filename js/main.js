@@ -99,25 +99,115 @@
     forms.forEach(function(form) {
       form.addEventListener('submit', handleFormSubmit);
 
-      // Real-time validation on blur for email input
+      // Real-time validation for email input
       var emailInput = form.querySelector('input[type="email"]');
       if (emailInput) {
+        // Validate on blur
         emailInput.addEventListener('blur', function() {
-          validateEmail(emailInput);
+          if (emailInput.value.trim()) {
+            validateEmail(emailInput);
+          }
         });
+
+        // Real-time validation while typing (with debounce)
+        var inputTimeout;
         emailInput.addEventListener('input', function() {
-          clearError(emailInput);
+          clearTimeout(inputTimeout);
+          var value = emailInput.value.trim();
+
+          // Clear errors immediately when starting to type
+          if (!value) {
+            clearError(emailInput);
+            return;
+          }
+
+          // Show validation feedback after user pauses typing
+          inputTimeout = setTimeout(function() {
+            validateEmailRealtime(emailInput);
+          }, 300);
+        });
+
+        // Show valid state when user finishes valid input
+        emailInput.addEventListener('change', function() {
+          if (emailInput.value.trim()) {
+            validateEmail(emailInput);
+          }
         });
       }
 
-      // Clear checkbox error on change
+      // Clear checkbox error on change and validate
       var consentCheckbox = form.querySelector('input[name="consent"]');
       if (consentCheckbox) {
         consentCheckbox.addEventListener('change', function() {
-          clearCheckboxError(consentCheckbox);
+          if (consentCheckbox.checked) {
+            clearCheckboxError(consentCheckbox);
+            markCheckboxValid(consentCheckbox);
+          } else {
+            clearCheckboxValid(consentCheckbox);
+          }
         });
       }
     });
+  }
+
+  /**
+   * Real-time email validation (shows valid/invalid state while typing)
+   */
+  function validateEmailRealtime(input) {
+    var value = input.value.trim();
+    var errorId = input.getAttribute('aria-describedby');
+    var errorElement = errorId ? document.getElementById(errorId) : null;
+
+    if (!value) {
+      clearError(input);
+      return;
+    }
+
+    var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (emailRegex.test(value)) {
+      clearError(input);
+      markInputValid(input);
+    } else if (value.includes('@') && value.indexOf('@') < value.length - 1) {
+      // Show hint when user has typed '@' but email is incomplete
+      clearError(input);
+      clearInputValid(input);
+    } else {
+      clearInputValid(input);
+    }
+  }
+
+  /**
+   * Mark input as valid (visual feedback)
+   */
+  function markInputValid(input) {
+    input.classList.add('is-valid');
+  }
+
+  /**
+   * Clear valid state from input
+   */
+  function clearInputValid(input) {
+    input.classList.remove('is-valid');
+  }
+
+  /**
+   * Mark checkbox as valid
+   */
+  function markCheckboxValid(checkbox) {
+    var label = checkbox.closest('.form-checkbox-label');
+    if (label) {
+      label.classList.add('is-valid');
+    }
+  }
+
+  /**
+   * Clear valid state from checkbox
+   */
+  function clearCheckboxValid(checkbox) {
+    var label = checkbox.closest('.form-checkbox-label');
+    if (label) {
+      label.classList.remove('is-valid');
+    }
   }
 
   /**
@@ -245,6 +335,7 @@
     }
 
     clearError(input);
+    markInputValid(input);
     return true;
   }
 
@@ -275,8 +366,10 @@
    */
   function showError(input, errorElement, message) {
     input.classList.add('is-invalid');
+    input.classList.remove('is-valid');
     if (errorElement) {
       errorElement.textContent = message;
+      errorElement.classList.add('is-visible');
     }
     input.setAttribute('aria-invalid', 'true');
   }
@@ -291,6 +384,7 @@
     input.classList.remove('is-invalid');
     if (errorElement) {
       errorElement.textContent = '';
+      errorElement.classList.remove('is-visible');
     }
     input.removeAttribute('aria-invalid');
   }
