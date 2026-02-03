@@ -4,7 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx playwright test"
+    "test": "npx playwright test",
+    "minify:css": "npx cleancss -o css/styles.min.css css/styles.css",
+    "minify:js": "npx uglifyjs js/main.js -c -m -o js/main.min.js",
+    "minify": "npm run minify:css && npm run minify:js",
+    "build": "npm run minify",
+    "serve": "npx serve -p 3000"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +17,8 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.58.1",
-    "serve": "^14.2.5"
+    "clean-css-cli": "^5.6.3",
+    "serve": "^14.2.5",
+    "uglify-js": "^3.19.3"
   }
 }
