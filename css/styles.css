@@ -2649,6 +2649,345 @@ ol {
 }
 
 /* ========================================
+   PRICING SECTION
+   Pricing cards for property owners and driver earnings
+   ======================================== */
+
+.pricing-section {
+  background-color: var(--color-white);
+}
+
+.pricing-intro {
+  font-size: var(--font-size-md);
+  color: var(--color-text-secondary);
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-12);
+  line-height: var(--line-height-base);
+}
+
+@media (min-width: 768px) {
+  .pricing-intro {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* Pricing Category */
+.pricing-category {
+  margin-bottom: var(--space-12);
+}
+
+.pricing-category-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+  text-align: center;
+  margin-bottom: var(--space-8);
+}
+
+@media (min-width: 768px) {
+  .pricing-category-title {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Pricing Grid */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-6);
+  }
+}
+
+/* Pricing Card */
+.pricing-card {
+  position: relative;
+  background: var(--color-white);
+  border: 2px solid var(--color-gray-200);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  transition: border-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base);
+}
+
+.pricing-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-4px);
+}
+
+/* Featured Card */
+.pricing-card-featured {
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-card-featured:hover {
+  border-color: var(--color-primary-hover);
+}
+
+.pricing-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-primary);
+  color: var(--color-white);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  padding: var(--space-1) var(--space-4);
+  border-radius: var(--border-radius-full);
+  white-space: nowrap;
+}
+
+/* Card Header */
+.pricing-card-header {
+  text-align: center;
+  margin-bottom: var(--space-4);
+}
+
+.pricing-card-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-1);
+}
+
+.pricing-card-subtitle {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  margin: 0;
+}
+
+/* Card Price */
+.pricing-card-price {
+  text-align: center;
+  padding: var(--space-4) 0;
+  border-bottom: 1px solid var(--color-gray-200);
+  margin-bottom: var(--space-4);
+}
+
+.pricing-amount {
+  display: block;
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-primary);
+  line-height: var(--line-height-tight);
+}
+
+.pricing-period {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Pricing Features */
+.pricing-features {
+  list-style: none;
+  flex: 1;
+  margin-bottom: var(--space-4);
+}
+
+.pricing-features li {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-3);
+  line-height: var(--line-height-base);
+}
+
+.pricing-check-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary);
+  margin-top: 2px;
+}
+
+.pricing-note {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin: 0;
+  padding-top: var(--space-3);
+  border-top: 1px solid var(--color-gray-200);
+}
+
+/* Driver Earnings Card */
+.pricing-category-drivers {
+  margin-bottom: var(--space-10);
+}
+
+.driver-earnings-card {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-8);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.driver-earnings-content {
+  color: var(--color-white);
+}
+
+.driver-earnings-header {
+  text-align: center;
+  margin-bottom: var(--space-6);
+}
+
+.driver-earnings-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-2);
+}
+
+.driver-earnings-subtitle {
+  font-size: var(--font-size-md);
+  opacity: 0.9;
+  margin: 0;
+}
+
+/* Earnings Stats */
+.driver-earnings-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+  text-align: center;
+}
+
+.earning-stat {
+  padding: var(--space-4);
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius-md);
+}
+
+.earning-stat-value {
+  display: block;
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-1);
+}
+
+.earning-stat-label {
+  font-size: var(--font-size-sm);
+  opacity: 0.85;
+}
+
+@media (max-width: 480px) {
+  .driver-earnings-stats {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .earning-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .earning-stat-value {
+    margin-bottom: 0;
+    font-size: var(--font-size-xl);
+  }
+}
+
+/* Driver Earnings Features */
+.driver-earnings-features {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 768px) {
+  .driver-earnings-features {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-4);
+  }
+}
+
+.driver-earnings-features li {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-base);
+}
+
+.driver-earnings-features .pricing-check-icon {
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+/* Pricing Callout */
+.pricing-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-4);
+  background: var(--color-gray-50);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-6);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .pricing-callout {
+    flex-direction: row;
+    text-align: left;
+    padding: var(--space-6) var(--space-8);
+  }
+}
+
+.pricing-callout-icon {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-primary);
+  color: var(--color-white);
+  border-radius: var(--border-radius-full);
+}
+
+.pricing-callout-icon svg {
+  width: 32px;
+  height: 32px;
+}
+
+.pricing-callout-content {
+  flex: 1;
+}
+
+.pricing-callout-title {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+  margin-bottom: var(--space-2);
+}
+
+.pricing-callout-text {
+  font-size: var(--font-size-base);
+  color: var(--color-text-secondary);
+  margin: 0;
+  line-height: var(--line-height-base);
+}
+
+/* ========================================
    FAQ ACCORDION SECTION
    Interactive accordion for common questions
    ======================================== */
