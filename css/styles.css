@@ -2704,7 +2704,7 @@ ol {
 
 @media (min-width: 1024px) {
   .carousel-slide {
-    flex: 0 0 calc(25% - var(--space-6));
+    flex: 0 0 calc(50% - var(--space-3));
   }
 }
 
@@ -2837,14 +2837,23 @@ ol {
   }
 }
 
-/* Hide nav buttons on desktop when all slides are visible */
+/* Show nav buttons on desktop for 2-column layout carousel */
 @media (min-width: 1024px) {
   .carousel-nav {
-    display: none;
+    width: 52px;
+    height: 52px;
+  }
+
+  .carousel-nav-prev {
+    left: var(--space-2);
+  }
+
+  .carousel-nav-next {
+    right: var(--space-2);
   }
 
   .app-carousel {
-    padding: 0;
+    padding: 0 var(--space-12);
   }
 }
 
@@ -2862,12 +2871,8 @@ ol {
   }
 }
 
-/* Hide indicators on desktop when all slides visible */
-@media (min-width: 1024px) {
-  .carousel-indicators {
-    display: none;
-  }
-}
+/* Indicators visible on desktop for 2-column layout carousel */
+/* (no changes needed, indicators will display by default) */
 
 .carousel-indicator {
   width: 10px;
@@ -2906,7 +2911,7 @@ ol {
   transition: none;
 }
 
-/* Responsive Layout for Larger Screens - Show all 4 mockups */
+/* Responsive Layout for Larger Screens - Show 2 mockups per row */
 @media (min-width: 1024px) {
   .carousel-viewport {
     overflow: visible;
@@ -2915,12 +2920,13 @@ ol {
   .carousel-track {
     gap: var(--space-6);
     justify-content: center;
+    flex-wrap: wrap;
   }
 
   .carousel-slide {
     flex: 0 0 auto;
-    width: calc(25% - var(--space-5));
-    max-width: 240px;
+    width: calc(50% - var(--space-3));
+    max-width: 300px;
   }
 
   .mockup-card {
@@ -2928,7 +2934,7 @@ ol {
   }
 
   .mockup-image-wrapper {
-    max-width: 180px;
+    max-width: 200px;
   }
 }
 
