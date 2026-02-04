@@ -2712,28 +2712,10 @@ ol {
   }
 }
 
-/* Carousel Slide */
+/* Carousel Slide - Show only 1 screen at a time */
 .carousel-slide {
   flex: 0 0 100%;
   min-width: 0;
-}
-
-@media (min-width: 480px) {
-  .carousel-slide {
-    flex: 0 0 calc(50% - var(--space-3));
-  }
-}
-
-@media (min-width: 768px) {
-  .carousel-slide {
-    flex: 0 0 calc(50% - var(--space-4));
-  }
-}
-
-@media (min-width: 1024px) {
-  .carousel-slide {
-    flex: 0 0 calc(50% - var(--space-3));
-  }
 }
 
 /* Mockup Card */
@@ -2939,22 +2921,14 @@ ol {
   transition: none;
 }
 
-/* Responsive Layout for Larger Screens - Show 2 mockups per row */
+/* Desktop Layout - Maintain single slide view */
 @media (min-width: 1024px) {
   .carousel-viewport {
-    overflow: visible;
+    overflow: hidden;
   }
 
   .carousel-track {
     gap: var(--space-6);
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .carousel-slide {
-    flex: 0 0 auto;
-    width: calc(50% - var(--space-3));
-    max-width: 300px;
   }
 
   .mockup-card {
@@ -2962,7 +2936,7 @@ ol {
   }
 
   .mockup-image-wrapper {
-    max-width: 200px;
+    max-width: 240px;
   }
 }
 
