@@ -38,13 +38,14 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#1a73e8">
 
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H6S36MFB1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+
+    gtag('config', 'G-0H6S36MFB1');
   </script>
 
   <!-- JSON-LD Structured Data for SEO -->
@@ -170,6 +171,7 @@
   <!-- Preload critical resources for faster loading -->
   <link rel="preload" href="css/styles.min.css" as="style">
   <link rel="preload" href="js/main.min.js" as="script">
+  <link rel="preload" href="images/hero-bg-poster.jpg" as="image">
 
   <!-- Critical CSS - inline styles for above-the-fold content to eliminate render-blocking -->
   <style>
@@ -183,7 +185,7 @@
     .logo-text{font-size:1.5rem;font-weight:700;color:#1a73e8}
     .nav-toggle{display:block;background:none;border:none;cursor:pointer;padding:8px;width:44px;height:44px}
     .nav-menu{position:absolute;top:100%;left:0;right:0;background:#fff;padding:16px;opacity:0;visibility:hidden;display:flex;flex-direction:column;gap:8px}
-    .hero-section{background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%);text-align:center;padding:80px 0}
+    .hero-section{position:relative;text-align:center;padding:80px 0;overflow:hidden;background:linear-gradient(135deg,#e3f2fd 0%,#bbdefb 100%)}.hero-video-wrapper{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}.hero-video{width:100%;height:100%;object-fit:cover}.hero-video-overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(227,242,253,0.85) 0%,rgba(187,222,251,0.80) 100%)}.hero-section>.container{position:relative;z-index:1}
     .hero-section h1{font-size:2.5rem;font-weight:700;color:#1a237e;margin-bottom:16px;line-height:1.25}
     .hero-highlight{color:#1a73e8}
     .hero-subtitle{font-size:1.125rem;color:#455a64;max-width:640px;margin:0 auto 24px}
@@ -223,6 +225,14 @@
   <main id="main-content" role="main">
     <!-- Hero Section -->
     <section id="hero" class="section hero-section" aria-labelledby="hero-heading">
+      <!-- Background Video -->
+      <div class="hero-video-wrapper" aria-hidden="true">
+        <video class="hero-video" autoplay muted loop playsinline poster="images/hero-bg-poster.jpg">
+          <source src="videos/hero-bg.webm" type="video/webm">
+          <source src="videos/hero-bg.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-overlay"></div>
+      </div>
       <div class="container">
         <p class="hero-eyebrow">Coming Soon to Your Neighborhood</p>
         <h1 id="hero-heading">Skip the Shovel.<br><span class="hero-highlight">Get Plowed.</span></h1>

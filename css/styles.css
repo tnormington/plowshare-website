@@ -468,9 +468,50 @@ ol {
    ======================================== */
 
 .hero-section {
-  background: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
+  position: relative;
   text-align: center;
   padding: var(--hero-padding-mobile) 0;
+  overflow: hidden;
+  /* Fallback gradient in case video doesn't load */
+  background: linear-gradient(135deg, var(--color-hero-gradient-start) 0%, var(--color-hero-gradient-end) 100%);
+}
+
+/* Hero Background Video */
+.hero-video-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.hero-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Poster image shown while video loads */
+  background: url('../images/hero-bg-poster.jpg') center center / cover no-repeat;
+}
+
+.hero-video-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* Semi-transparent overlay for text readability */
+  background: linear-gradient(
+    135deg,
+    rgba(227, 242, 253, 0.85) 0%,
+    rgba(187, 222, 251, 0.80) 100%
+  );
+}
+
+/* Ensure content is above the video */
+.hero-section > .container {
+  position: relative;
+  z-index: 1;
 }
 
 @media (min-width: 768px) {
