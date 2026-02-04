@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Plowshare - Get in touch with us for inquiries about our on-demand snow plowing service">
+  <title>Contact Us | Plowshare</title>
+  <link rel="stylesheet" href="css/styles.min.css">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0H6S36MFB1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-0H6S36MFB1');
+  </script>
+
+  <script src="js/header-nav.js"></script>
+  <style>
+    /* Contact Page Specific Styles */
+    .contact-section {
+      padding: var(--space-12) 0;
+      min-height: calc(100vh - 300px);
+      background-color: var(--color-white);
+    }
+
+    .contact-container {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: var(--space-8);
+    }
+
+    .contact-header h1 {
+      font-size: var(--font-size-4xl);
+      font-weight: var(--font-weight-bold);
+      margin-bottom: var(--space-4);
+      color: var(--color-primary-dark);
+    }
+
+    .contact-header p {
+      font-size: var(--font-size-lg);
+      color: var(--color-text-secondary);
+      line-height: var(--line-height-loose);
+    }
+
+    .contact-form {
+      background: var(--color-gray-100);
+      padding: var(--space-8);
+      border-radius: var(--border-radius-lg);
+    }
+
+    .contact-form .form-group {
+      margin-bottom: var(--space-5);
+    }
+
+    .contact-form label {
+      display: block;
+      font-size: var(--font-size-sm);
+      font-weight: var(--font-weight-medium);
+      color: var(--color-text-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .contact-form .form-input,
+    .contact-form textarea {
+      width: 100%;
+      padding: var(--space-4);
+      font-size: var(--font-size-base);
+      border: var(--border-width) solid var(--color-border);
+      border-radius: var(--border-radius-md);
+      background: var(--color-white);
+      color: var(--color-text-primary);
+      transition: border-color var(--transition-base), box-shadow var(--transition-base);
+      font-family: inherit;
+    }
+
+    .contact-form .form-input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.15);
+    }
+
+    .contact-form .form-input::placeholder,
+    .contact-form textarea::placeholder {
+      color: var(--color-gray-700);
+      opacity: 0.7;
+    }
+
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+
+    .contact-form .btn {
+      width: 100%;
+      margin-top: var(--space-4);
+    }
+
+    .form-success {
+      display: none;
+      text-align: center;
+      padding: var(--space-8);
+    }
+
+    .form-success.is-visible {
+      display: block;
+    }
+
+    .form-success-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto var(--space-4);
+      background: #4caf50;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .form-success-icon svg {
+      width: 32px;
+      height: 32px;
+      stroke: white;
+      stroke-width: 3;
+    }
+
+    .form-success h2 {
+      font-size: var(--font-size-2xl);
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-primary-dark);
+      margin-bottom: var(--space-3);
+    }
+
+    .form-success p {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+    }
+
+    .contact-info {
+      margin-top: var(--space-8);
+      text-align: center;
+    }
+
+    .contact-info p {
+      font-size: var(--font-size-base);
+      color: var(--color-text-secondary);
+      margin-bottom: var(--space-2);
+    }
+
+    .contact-info a {
+      color: var(--color-primary);
+      text-decoration: none;
+      transition: color var(--transition-base);
+    }
+
+    .contact-info a:hover {
+      color: var(--color-primary-hover);
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .contact-section {
+        padding: var(--space-8) 0;
+      }
+
+      .contact-header h1 {
+        font-size: var(--font-size-3xl);
+      }
+
+      .contact-form {
+        padding: var(--space-6);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Contact Page Content -->
+  <main id="main-content" role="main">
+    <section class="contact-section">
+      <div class="container">
+        <div class="contact-container">
+          <div class="contact-header">
+            <h1>Contact Us</h1>
+            <p>Have a question or want to learn more about Plowshare? Send us a message and we'll get back to you as soon as possible.</p>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="contact-form" id="contact-form-wrapper">
+            <form id="contact-form" action="https://formspree.io/f/xgozgjqw" method="POST">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-input"
+                  placeholder="Your name"
+                  required
+                  autocomplete="name"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-input"
+                  placeholder="your@email.com"
+                  required
+                  autocomplete="email"
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-input"
+                  placeholder="What is this regarding?"
+                  required
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="message">Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="How can we help you?"
+                  required
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-lg">
+                <span class="btn-text">Send Message</span>
+              </button>
+            </form>
+
+            <!-- Success Message -->
+            <div class="form-success" id="form-success">
+              <div class="form-success-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+              </div>
+              <h2>Message Sent!</h2>
+              <p>Thank you for reaching out. We'll get back to you as soon as possible.</p>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <p>You can also reach us at:</p>
+            <p><a href="mailto:support@plowshare.com">support@plowshare.com</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <a href="./" class="logo" aria-label="Plowshare - Home">
+            <span class="logo-text">Plowshare</span>
+          </a>
+          <p class="footer-tagline">On-demand snow removal at your fingertips.</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <div class="footer-nav-group">
+            <h3>Product</h3>
+            <ul>
+              <li><a href="./#features">Features</a></li>
+              <li><a href="./#how-it-works">How It Works</a></li>
+              <li><a href="./#how-it-works-drivers">For Drivers</a></li>
+              <li><a href="./#pricing">Pricing</a></li>
+              <li><a href="./#faq">FAQ</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <h3>Company</h3>
+            <ul>
+              <li><a href="https://tnormington.com">About Us</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-nav-group">
+            <h3>Legal</h3>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="cookies.html">Cookie Policy</a></li>
+              <li><a href="accessibility.html">Accessibility</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year">2026</span> Plowshare. All rights reserved.</p>
+        <p class="footer-legal-note">Plowshare is a registered trademark. All third-party trademarks are the property of their respective owners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JavaScript - using minified version for production -->
+  <script src="js/main.min.js" defer></script>
+  <script>
+    // Update current year
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // Handle form submission with Formspree
+    const form = document.getElementById('contact-form');
+    const formWrapper = document.getElementById('contact-form-wrapper');
+    const successMessage = document.getElementById('form-success');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const btnText = submitBtn.querySelector('.btn-text');
+      const originalText = btnText.textContent;
+
+      // Show loading state
+      btnText.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      try {
+        const response = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (response.ok) {
+          // Hide form and show success message
+          form.style.display = 'none';
+          successMessage.classList.add('is-visible');
+        } else {
+          throw new Error('Form submission failed');
+        }
+      } catch (error) {
+        // Show error - restore button
+        btnText.textContent = originalText;
+        submitBtn.disabled = false;
+        alert('There was an error sending your message. Please try again or email us directly.');
+      }
+    });
+  </script>
+</body>
+</html>
