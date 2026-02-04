@@ -2352,11 +2352,12 @@ ol {
 
 @media (min-width: 1024px) {
   .steps-container {
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     align-items: flex-start;
     justify-content: center;
-    gap: var(--space-4);
-    max-width: none;
+    gap: var(--space-8);
+    max-width: 900px;
   }
 }
 
@@ -2382,8 +2383,8 @@ ol {
 
 @media (min-width: 1024px) {
   .step-card {
-    flex: 1;
-    max-width: 320px;
+    width: 100%;
+    max-width: none;
     padding: var(--space-8);
     padding-top: var(--space-10);
   }
@@ -2489,10 +2490,7 @@ ol {
 
 @media (min-width: 1024px) {
   .step-connector {
-    transform: rotate(0deg);
-    padding: 0;
-    margin-top: var(--space-16);
-    flex-shrink: 0;
+    display: none;
   }
 }
 
