@@ -532,6 +532,173 @@ ol {
   }
 }
 
+/* Hero CTA Buttons */
+.hero-cta-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 480px) {
+  .hero-cta-buttons {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-4);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-cta-buttons {
+    margin-bottom: var(--space-8);
+  }
+}
+
+.hero-cta-btn {
+  min-width: 200px;
+}
+
+/* Secondary Button Style */
+.btn-secondary {
+  background-color: var(--color-white);
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+/* Hero Trust Signals */
+.hero-trust-signals {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  align-items: center;
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 480px) {
+  .hero-trust-signals {
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--space-6);
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-trust-signals {
+    margin-bottom: var(--space-8);
+  }
+}
+
+.trust-signal {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-primary-dark);
+  background: rgba(255, 255, 255, 0.7);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--border-radius-full);
+  backdrop-filter: blur(4px);
+}
+
+.trust-signal-icon {
+  color: var(--color-primary);
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .trust-signal {
+    font-size: var(--font-size-base);
+    padding: var(--space-3) var(--space-5);
+  }
+}
+
+/* Hero 3-Step Process */
+.hero-steps {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-8);
+  flex-wrap: wrap;
+}
+
+@media (min-width: 480px) {
+  .hero-steps {
+    gap: var(--space-4);
+    flex-wrap: nowrap;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-steps {
+    gap: var(--space-6);
+    margin-bottom: var(--space-10);
+  }
+}
+
+.hero-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.hero-step-icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-white);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-md);
+  color: var(--color-primary);
+}
+
+@media (min-width: 768px) {
+  .hero-step-icon {
+    width: 72px;
+    height: 72px;
+  }
+
+  .hero-step-icon svg {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+.hero-step-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary-dark);
+}
+
+@media (min-width: 768px) {
+  .hero-step-label {
+    font-size: var(--font-size-base);
+  }
+}
+
+.hero-step-arrow {
+  color: var(--color-primary);
+  opacity: 0.6;
+  display: none;
+}
+
+@media (min-width: 480px) {
+  .hero-step-arrow {
+    display: flex;
+    align-items: center;
+  }
+}
+
 /* Hero Benefits List */
 .hero-benefits {
   display: flex;
