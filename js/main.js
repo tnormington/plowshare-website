@@ -562,16 +562,8 @@
 
     // Calculate slides per view based on viewport
     function updateSlidesPerView() {
-      var width = window.innerWidth;
-      if (width >= 1024) {
-        slidesPerView = 4; // All slides visible on desktop
-      } else if (width >= 768) {
-        slidesPerView = 2;
-      } else if (width >= 480) {
-        slidesPerView = 2;
-      } else {
-        slidesPerView = 1;
-      }
+      // Always show 1 slide at a time (100% width carousel)
+      slidesPerView = 1;
     }
 
     // Get slide width including gap
