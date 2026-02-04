@@ -9,7 +9,10 @@
     "minify:js": "npx uglifyjs js/main.js -c -m -o js/main.min.js",
     "minify": "npm run minify:css && npm run minify:js",
     "build": "npm run minify",
-    "serve": "npx serve -p 3000"
+    "serve": "npx serve -p 3000",
+    "watch:css": "chokidar \"css/styles.css\" -c \"npm run minify:css\"",
+    "watch:js": "chokidar \"js/main.js\" -c \"npm run minify:js\"",
+    "dev": "npm run build && concurrently -n \"css,js,server\" -c \"yellow,cyan,green\" \"npm run watch:css\" \"npm run watch:js\" \"npm run serve\""
   },
   "keywords": [],
   "author": "",
@@ -17,7 +20,9 @@
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.58.1",
+    "chokidar-cli": "^3.0.0",
     "clean-css-cli": "^5.6.3",
+    "concurrently": "^9.1.2",
     "serve": "^14.2.5",
     "uglify-js": "^3.19.3"
   },
