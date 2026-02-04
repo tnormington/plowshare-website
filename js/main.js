@@ -993,6 +993,16 @@
   }
 
   /**
+   * Initialize Lucide Icons
+   */
+  function initLucideIcons() {
+    // Initialize lucide icons after they're loaded
+    if (typeof lucide !== 'undefined' && lucide.createIcons) {
+      lucide.createIcons();
+    }
+  }
+
+  /**
    * Initialize all functionality when DOM is ready
    */
   function init() {
@@ -1003,6 +1013,7 @@
     initCarousel();
     initFaqAccordion();
     initScrollReveal();
+    initLucideIcons();
   }
 
   // Run initialization
