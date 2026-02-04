@@ -247,12 +247,8 @@
         <!-- Trust Signals -->
         <div class="hero-trust-signals">
           <div class="trust-signal">
-            <i data-lucide="map-pin" class="trust-signal-icon" aria-hidden="true"></i>
-            <span>Launching soon in select cities</span>
-          </div>
-          <div class="trust-signal">
-            <i data-lucide="plane" class="trust-signal-icon" aria-hidden="true"></i>
-            <span>Built for snowy cities</span>
+            <i data-lucide="map-pin-check-inside" class="trust-signal-icon" aria-hidden="true"></i>
+            <span>Launching soon in snowy locations</span>
           </div>
         </div>
 
@@ -921,15 +917,19 @@
 
           <fieldset class="form-fieldset">
             <legend class="form-legend">I am a:</legend>
-            <div class="form-radio-group">
-              <label class="form-radio-label">
+            <div class="form-radio-group form-radio-group-equal">
+              <label class="form-radio-label form-radio-label-with-icon">
                 <input type="radio" name="user_type" value="property_owner" checked>
-                <span class="form-radio-custom"></span>
+                <span class="form-radio-icon" aria-hidden="true">
+                  <i data-lucide="home" width="24" height="24"></i>
+                </span>
                 <span class="form-radio-text">Property Owner</span>
               </label>
-              <label class="form-radio-label">
+              <label class="form-radio-label form-radio-label-with-icon">
                 <input type="radio" name="user_type" value="driver">
-                <span class="form-radio-custom"></span>
+                <span class="form-radio-icon" aria-hidden="true">
+                  <i data-lucide="truck" width="24" height="24"></i>
+                </span>
                 <span class="form-radio-text">Plow Driver</span>
               </label>
             </div>
