@@ -2359,6 +2359,12 @@ ol {
     gap: var(--space-8);
     max-width: 900px;
   }
+
+  /* Property owners section: 3-column layout */
+  #how-it-works .steps-container {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 1200px;
+  }
 }
 
 /* Individual Step Card */
@@ -2490,6 +2496,11 @@ ol {
 
 @media (min-width: 1024px) {
   .step-connector {
+    display: none;
+  }
+
+  /* Hide connectors in property owners section on desktop */
+  #how-it-works .step-connector {
     display: none;
   }
 }
