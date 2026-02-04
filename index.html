@@ -38,6 +38,15 @@
   <link rel="manifest" href="site.webmanifest">
   <meta name="theme-color" content="#1a73e8">
 
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
   <!-- JSON-LD Structured Data for SEO -->
   <script type="application/ld+json">
   {
@@ -259,7 +268,7 @@
           </div>
           <div class="hero-step">
             <div class="hero-step-icon">
-              <img src="images/SNOWPLOW-ICON.svg" alt="" width="32" height="32" aria-hidden="true" class="snowplow-icon">
+               <i data-lucide="snowflake" width="24" height="24"></i>
             </div>
             <span class="hero-step-label">Plowed</span>
           </div>
