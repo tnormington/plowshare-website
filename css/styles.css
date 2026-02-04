@@ -2731,11 +2731,6 @@ ol {
   transition: box-shadow var(--transition-base), transform var(--transition-base);
 }
 
-.mockup-card:hover {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
-}
-
 /* Mockup Image Wrapper */
 .mockup-image-wrapper {
   position: relative;
@@ -3991,11 +3986,6 @@ ol {
 .mockup-card {
   transition: transform var(--transition-base),
               box-shadow var(--transition-base);
-}
-
-.mockup-card:hover {
-  transform: translateY(-8px) scale(1.02);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
 }
 
 /* ======================
