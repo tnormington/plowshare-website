@@ -17,6 +17,11 @@
   <meta name="color-scheme" content="light">
   <meta name="format-detection" content="telephone=no">
 
+  <!-- Geographic Meta Tags -->
+  <meta name="geo.region" content="US">
+  <meta name="geo.placename" content="United States">
+  <meta name="ICBM" content="41.8781, -87.6298">
+
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://plowshare.app/">
@@ -32,6 +37,7 @@
   <meta property="twitter:image" content="https://plowshare.app/images/og-image.png">
 
   <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
   <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -161,6 +167,69 @@
         }
       }
     ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "@id": "https://plowshare.app/#business",
+    "name": "Plowshare",
+    "description": "On-demand snow plowing service connecting property owners with reliable snow plow drivers.",
+    "url": "https://plowshare.app/",
+    "logo": "https://plowshare.app/images/og-image.png",
+    "image": "https://plowshare.app/images/og-image.png",
+    "priceRange": "$35-$75",
+    "serviceArea": [
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "41.8781",
+          "longitude": "-87.6298"
+        },
+        "geoRadius": "200 mi",
+        "description": "Midwest United States"
+      },
+      {
+        "@type": "GeoCircle",
+        "geoMidpoint": {
+          "@type": "GeoCoordinates",
+          "latitude": "40.7128",
+          "longitude": "-74.0060"
+        },
+        "geoRadius": "200 mi",
+        "description": "Northeast United States"
+      }
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "United States"
+    },
+    "knowsAbout": ["snow removal", "snow plowing", "driveway clearing", "winter services"],
+    "slogan": "Skip the Shovel. Get Plowed."
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "VideoObject",
+    "name": "Plowshare Snow Plowing Service",
+    "description": "See how Plowshare connects property owners with reliable snow plow drivers for on-demand snow removal services.",
+    "thumbnailUrl": "https://plowshare.app/images/hero-bg-poster.jpg",
+    "uploadDate": "2026-01-01",
+    "contentUrl": "https://plowshare.app/videos/hero-bg.mp4",
+    "embedUrl": "https://plowshare.app/",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Plowshare",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://plowshare.app/images/og-image.png"
+      }
+    }
   }
   </script>
 
