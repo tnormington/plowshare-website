@@ -1,8 +1,8 @@
 {
   "name": "plowshare-website",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "Marketing website for Plowshare — an on-demand snow plowing service",
+  "private": true,
   "scripts": {
     "test": "npx playwright test",
     "minify:css": "npx cleancss -o css/styles.min.css css/styles.css",
@@ -14,9 +14,9 @@
     "watch:js": "chokidar \"js/main.js\" -c \"npm run minify:js\"",
     "dev": "npm run build && concurrently -n \"css,js,server\" -c \"yellow,cyan,green\" \"npm run watch:css\" \"npm run watch:js\" \"npm run serve\""
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["snow plowing", "snow removal", "on-demand", "plowshare"],
+  "author": "Plowshare",
+  "license": "UNLICENSED",
   "type": "commonjs",
   "devDependencies": {
     "@playwright/test": "^1.58.1",
